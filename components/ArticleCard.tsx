@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const ArticleCard = () => {
   return (
-    <div className="relative w-[165px] h-[248px] rounded-[15px] overflow-hidden lg:w-[350px] lg:h-[525px] lg:rounded-[20px]">
+    <Link
+      href="/articles/147"
+      className="relative w-[165px] h-[248px] rounded-[15px] overflow-hidden lg:w-[350px] lg:h-[525px] lg:rounded-[20px]"
+    >
       <Image
         src="/images/Banner.png"
         alt="Event"
@@ -26,7 +30,7 @@ const ArticleCard = () => {
           Baca Selengkapnya &gt;
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

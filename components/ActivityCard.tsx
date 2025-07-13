@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const ActivityCard = () => {
   return (
-    <div>
+    <Link href="/activities/147">
       <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden lg:w-[550px] lg:h-[309px] lg:rounded-[20px]">
         <Image
           src="/images/ActivityBanner.png"
@@ -19,7 +20,7 @@ const ActivityCard = () => {
           12 April 2025
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
