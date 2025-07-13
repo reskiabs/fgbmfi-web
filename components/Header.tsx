@@ -1,5 +1,6 @@
 "use client";
 
+import { LogoPlaceholder } from "@/lib/helper/ImagePlacholder";
 import clsx from "clsx";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
@@ -22,9 +23,15 @@ const Header = () => {
   return (
     <>
       <header className="relative z-50 flex items-center justify-between px-6 py-4 bg-white md:px-[70px] lg:px-[150px]">
-        <div className="flex items-center space-x-2">
-          <Image src="/logo.svg" alt="Logo" width={60} height={60} />
-        </div>
+        <Image
+          src="/icons/logo.svg"
+          alt="Logo"
+          width={60}
+          height={60}
+          blurDataURL={LogoPlaceholder}
+          placeholder="blur"
+          className="rounded-full"
+        />
 
         {/* Desktop menu */}
         <nav className="items-center hidden space-x-[38px] text-[15px] font-normal text-shadow-text md:flex">
@@ -68,7 +75,7 @@ const Header = () => {
 
       {/* Mobile overlay menu */}
       {menuOpen && (
-        <div className="fixed px-8 bg-white h-[250px] inset-0 z-40 flex flex-col items-center justify-start pt-24 text-lg text-gray-800 md:hidden">
+        <div className="fixed inset-0 z-40 h-[42%] flex flex-col items-center justify-start px-8 pt-24 text-lg text-gray-800 bg-white md:hidden">
           {menuItems.map((item) => {
             const isActive =
               pathname === item.route || pathname.startsWith(item.route + "/");

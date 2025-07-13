@@ -1,0 +1,31 @@
+import ContentTitle from "../ContentTitle";
+import Container from "./Container";
+
+const AboutUs = () => {
+  return (
+    <Container>
+      <section className="mt-[50px] lg:flex lg:justify-between lg:mt-[100px]">
+        <div className="lg:max-w-[353px] mb-2.5">
+          <ContentTitle title="Tentang FGBMFI Indonesia" removeButton />
+        </div>
+        <p className="text-xs font-normal lg:text-xl lg:max-w-[550px]">
+          Perkumpulan Usahawan Injil Sepenuhnya International yang disingkat
+          dengan PUISI atau dalam Bahasa Inggrisnya
+          <em> Full Gospel Business Men’s Fellowship International</em>, yang
+          disingkat FGBMFI, selanjutnya disebut FGBMFI Indonesia yaitu
+          perkumpulan para pria dari berbagai macam profesi yang mandiri, dan
+          bukan organisasi gereja, bersifat interdenominasi dan tidak
+          berafiliasi dengan partai politik apapun, tujuan organisasi ini yaitu
+          kegerakan anggota dalam menjangkau jiwa-jiwa baru di dunia usaha (
+          <em>market place</em>) melengkapi anggota dalam rohani, nilai etika,
+          gaya hidup di keluarga, dunia kerja dan masyarakat umum untuk terus
+          bermultiplikasi melaksanakan Amanat Agung. FGBMFI Indonesia merupakan
+          organisasi kemasyarakatan Kristiani yang berbadan hukum dan terdaftar
+          di Dirjen Bimbingan Masyarakatan Kristen
+        </p>
+      </section>
+    </Container>
+  );
+};
+
+export default AboutUs;
