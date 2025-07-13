@@ -6,7 +6,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <div className="w-full">
-      <div className="bg-gradient-to-b from-primary to-primary-dark w-full h-[124px] flex flex-col justify-center items-center md:flex-row md:justify-between md:px-[70px] lg:px-[150px] md:h-[162px] lg:h-[192px]">
+      <div className="bg-gradient-to-b from-primary to-primary-dark w-full h-[124px] flex flex-col justify-center items-center md:flex-row md:justify-between md:px-[70px] lg:px-[255px] md:h-[162px] lg:h-[192px]">
         <div className="mb-[10px] text-center -space-y-5 md:text-left md:-space-y-3">
           <h1 className="text-xl font-bold text-white md:text-[25px] lg:text-[40px]">
             FGBMFI Indonesia

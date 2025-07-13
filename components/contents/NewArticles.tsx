@@ -9,15 +9,15 @@ const NewArticles = () => {
         <div className="mb-2.5">
           <ContentTitle title="Artikel Terbaru" />
         </div>
-        <div className="flex items-center justify-center">
-          <div className="grid gap-2.5 grid-cols-2 lg:grid-cols-3 lg:gap-11 content-center">
+        {/* <div className="flex items-center justify-center"> */}
+        <div className="grid gap-2.5 grid-cols-2 lg:grid-cols-3 lg:gap-11 content-center">
+          <ArticleCard />
+          <ArticleCard />
+          <div className="hidden lg:inline">
             <ArticleCard />
-            <ArticleCard />
-            <div className="hidden lg:inline">
-              <ArticleCard />
-            </div>
           </div>
         </div>
+        {/* </div> */}
       </section>
     </Container>
   );

@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`
-    min-h-screen flex flex-col
+    min-h-screen flex flex-col 
     bg-gradient-to-b from-[#E8F2F2] to-white 
     ${geistSans.variable} ${geistMono.variable} antialiased
   `}
