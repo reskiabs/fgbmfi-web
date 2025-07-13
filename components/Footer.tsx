@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-gradient-to-b  gap-2 from-secondary to-teritary w-full h-[32px] flex flex-col justify-center items-center md:items-start md:px-[70px] lg:px-[150px] md:h-[42px] lg:h-[60px]">
+      <div className="bg-gradient-to-b  gap-2 from-secondary to-teritary w-full h-[32px] flex flex-col justify-center items-center md:items-start md:px-[70px] lg:px-[255px] md:h-[42px] lg:h-[60px]">
         <p className="text-[10px] text-primary font-medium md:text-[12px] lg:text-[15px]">
           © 2025, All right reserved, FGBMFI Indonesia
         </p>
