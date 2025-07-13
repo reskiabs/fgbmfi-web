@@ -34,7 +34,7 @@ const Header = () => {
         />
 
         {/* Desktop menu */}
-        <nav className="items-center hidden space-x-[38px] text-[15px] font-normal text-shadow-text md:flex">
+        <nav className="items-center hidden space-x-[38px] text-[15px] font-normal text-shadow-text md:flex hover:cursor-pointer">
           {menuItems.map((item) => {
             const isActive =
               pathname === item.route || pathname.startsWith(item.route + "/");
