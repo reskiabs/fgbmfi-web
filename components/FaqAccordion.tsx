@@ -55,7 +55,7 @@ export default function FaqAccordion() {
             }`}
           >
             <button
-              className="flex items-center justify-between w-full px-[15px] py-[17px]  text-xs font-medium text-left text-gray-900 lg:text-xl lg:px-6 lg:py-7"
+              className="flex items-center justify-between w-full px-[15px] py-[17px] text-xs font-medium text-left text-gray-900 lg:text-xl lg:px-6 lg:py-7"
               onClick={() => toggleIndex(index)}
             >
               <span>{item.question}</span>
