@@ -9,10 +9,11 @@ const ActivityCoverage = () => {
         <div className="mb-2.5">
           <ContentTitle title="Liputan Kegiatan" />
         </div>
-        {/* <div className="grid grid-cols-1 bg-red-500 lg:grid-cols-2"> */}
-        <div className="flex flex-col space-y-2.5 lg:space-y-0 lg:flex-row lg:justify-between">
-          <ActivityCard />
-          <ActivityCard />
+        <div className="flex items-center justify-center space-y-2.5 lg:space-y-0 l">
+          <div className="grid grid-cols-1 lg:gap-11 lg:grid-cols-2">
+            <ActivityCard />
+            <ActivityCard />
+          </div>
         </div>
       </section>
     </Container>

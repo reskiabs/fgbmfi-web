@@ -10,8 +10,14 @@ const OrganizationStructure = () => {
         disingkat FGBMFI, memiliki Struktur Organisasi Tingkat Nasional dengan
         Periode 2025-2030.
       </p>
-      <div className="relative border-2  border-primary w-[339px] h-[207px] lg:border-4 lg:w-[1140px] lg:h-[695px]">
-        <Image src="/organization.png" alt="Organization Structure" fill />
+      <div className="flex items-center justify-center">
+        <div className="relative border-2 flex justify-center items-center border-primary w-[339px] h-[207px] lg:border-4 lg:w-[1140px] lg:h-[695px]">
+          <Image
+            src="/images/organization.png"
+            alt="Organization Structure"
+            fill
+          />
+        </div>
       </div>
     </section>
   );

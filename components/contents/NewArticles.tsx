@@ -9,11 +9,13 @@ const NewArticles = () => {
         <div className="mb-2.5">
           <ContentTitle title="Artikel Terbaru" />
         </div>
-        <div className="grid w-full gap-2.5 grid-cols-2 lg:grid-cols-3 lg:gap-11">
-          <ArticleCard />
-          <ArticleCard />
-          <div className="hidden lg:inline">
+        <div className="flex items-center justify-center">
+          <div className="grid gap-2.5 grid-cols-2 lg:grid-cols-3 lg:gap-11 content-center">
             <ArticleCard />
+            <ArticleCard />
+            <div className="hidden lg:inline">
+              <ArticleCard />
+            </div>
           </div>
         </div>
       </section>

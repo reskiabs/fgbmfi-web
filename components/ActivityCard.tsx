@@ -5,7 +5,7 @@ const ActivityCard = () => {
     <div>
       <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden lg:w-[550px] lg:h-[309px] lg:rounded-[20px]">
         <Image
-          src="/ActivityBanner.png"
+          src="/images/ActivityBanner.png"
           alt="Event"
           fill
           className="object-center"

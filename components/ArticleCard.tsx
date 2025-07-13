@@ -3,7 +3,12 @@ import Image from "next/image";
 const ArticleCard = () => {
   return (
     <div className="relative w-[165px] h-[248px] rounded-[15px] overflow-hidden lg:w-[350px] lg:h-[525px] lg:rounded-[20px]">
-      <Image src="/Banner.png" alt="Event" fill className="object-cover" />
+      <Image
+        src="/images/Banner.png"
+        alt="Event"
+        fill
+        className="object-cover"
+      />
 
       {/* Overlay gradient for readability */}
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
