@@ -1,3 +1,5 @@
+import ComingSoon from "@/components/ComingSoon";
+import Container from "@/components/contents/Container";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 const AboutUsPage = () => {
-  return <div>About Us Page</div>;
+  return (
+    <Container>
+      <ComingSoon />
+    </Container>
+  );
 };
 
 export default AboutUsPage;
