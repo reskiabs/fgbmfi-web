@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const AboutUsPage = () => {
   return (
     <Container>
-      <section className="mb-12">
+      <section className="mb-8 lg:mb-24">
         <div className="mb-2.5 lg:mb-10">
           <ContentTitle title="Tentang Kami" removeButton />
         </div>

@@ -30,6 +30,10 @@ const faqData: FaqItem[] = [
     question: "Visi dan Misi FGBMFI Indonesia",
     answer: "Coming soon...",
   },
+  {
+    question: "Nilai-nilai FGBMFI Indonesia",
+    answer: "Coming soon...",
+  },
 ];
 
 export default function FaqAccordion() {
@@ -40,29 +44,29 @@ export default function FaqAccordion() {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2.5 lg:space-y-5">
       {faqData.map((item, index) => {
         const isOpen = openIndex === index;
         return (
           <div
             key={index}
-            className={`rounded-xl border bg-white ${
+            className={`rounded-xl border border-primary bg-white ${
               isOpen ? "shadow-md" : "border-transparent"
             }`}
           >
             <button
-              className="flex items-center justify-between w-full px-4 py-5 text-base font-medium text-left text-gray-900"
+              className="flex items-center justify-between w-full px-[15px] py-[17px]  text-xs font-medium text-left text-gray-900 lg:text-xl lg:px-6 lg:py-7"
               onClick={() => toggleIndex(index)}
             >
               <span>{item.question}</span>
               {isOpen ? (
-                <ChevronUp className="w-5 h-5 text-teal-600" />
+                <ChevronUp className="text-teal-600 size-5 lg:size-7 " />
               ) : (
-                <ChevronDown className="w-5 h-5 text-teal-600" />
+                <ChevronDown className="text-teal-600 size-5 lg:size-7 " />
               )}
             </button>
             {isOpen && (
-              <div className="px-4 pb-5 text-sm text-gray-600">
+              <div className="px-[15px] border-gray-200 pb-[15px] text-xs font-normal text-gray-400 lg:text-xl lg:px-6 lg:pb-7">
                 {item.answer}
               </div>
             )}
