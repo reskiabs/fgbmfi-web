@@ -7,18 +7,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import ContactPopup from "./ContactPopup";
 
 const menuItems = [
   { name: "Beranda", route: "/" },
   { name: "Tentang Kami", route: "/about-us" },
   { name: "Artikel", route: "/articles" },
   { name: "Kegiatan", route: "/activities" },
-  { name: "Hubungi Kami", route: "/" },
+  { name: "Hubungi Kami", route: "/" }, // route dummy, karena pakai popup
 ];
 
 const Header = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showContactPopup, setShowContactPopup] = useState(false);
 
   return (
     <>
@@ -41,18 +43,27 @@ const Header = () => {
 
             const isHubungiKami = item.name === "Hubungi Kami";
 
+            if (isHubungiKami) {
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => setShowContactPopup(true)}
+                  className={clsx(
+                    "px-5 py-3 border rounded-full border-primary-dark text-primary-dark hover:bg-tertiary transition"
+                  )}
+                >
+                  {item.name}
+                </button>
+              );
+            }
+
             return (
               <Link
                 key={item.name}
                 href={item.route}
                 className={clsx(
-                  "transition",
-                  !isHubungiKami && "hover:underline hover:text-primary-dark",
-                  isHubungiKami &&
-                    "px-5 py-3 border rounded-full border-primary-dark text-primary-dark hover:bg-tertiary",
-                  isActive &&
-                    !isHubungiKami &&
-                    "font-bold underline text-primary"
+                  "transition hover:underline hover:text-primary-dark",
+                  isActive && "font-bold underline text-primary"
                 )}
               >
                 {item.name}
@@ -82,6 +93,21 @@ const Header = () => {
 
             const isHubungiKami = item.name === "Hubungi Kami";
 
+            if (isHubungiKami) {
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    setShowContactPopup(true);
+                    setMenuOpen(false);
+                  }}
+                  className="w-full py-4 text-xs font-medium text-center transition border-b border-gray-300"
+                >
+                  {item.name}
+                </button>
+              );
+            }
+
             return (
               <Link
                 key={item.name}
@@ -89,10 +115,7 @@ const Header = () => {
                 onClick={() => setMenuOpen(false)}
                 className={clsx(
                   "w-full py-4 text-xs font-normal text-center border-b border-gray-300 transition",
-                  !isHubungiKami && "hover:underline hover:text-primary",
-                  isActive &&
-                    !isHubungiKami &&
-                    "font-bold underline text-primary"
+                  isActive && "font-bold underline text-primary"
                 )}
               >
                 {item.name}
@@ -100,6 +123,11 @@ const Header = () => {
             );
           })}
         </div>
+      )}
+
+      {/* Popup Kontak */}
+      {showContactPopup && (
+        <ContactPopup onClose={() => setShowContactPopup(false)} />
       )}
     </>
   );

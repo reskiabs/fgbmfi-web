@@ -1,5 +1,6 @@
 "use client";
 
+import { ImagePlacholder } from "@/lib/helper/ImagePlacholder";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -26,18 +27,23 @@ const ImageCarousel = () => {
     <div>
       <div className="overflow-hidden rounded-xl">
         <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden lg:w-[1140px] lg:h-[525px] lg:rounded-[20px]">
-          {images[activeIndex] && (
+          {images.map((src, index) => (
             <Image
-              key={images[activeIndex]}
-              src={images[activeIndex]}
-              alt={`Slide ${activeIndex + 1}`}
+              key={index}
+              src={src}
+              alt={`Slide ${index + 1}`}
               fill
-              className="object-cover transition-opacity duration-500"
-              priority
+              className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out ${
+                index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+              placeholder="blur"
+              blurDataURL={ImagePlacholder}
+              priority={index === 0}
             />
-          )}
+          ))}
         </div>
       </div>
+
       <div className="flex justify-center mt-2.5 space-x-2 lg:space-x-[20px] lg:mt-5">
         {images.map((_, i) => (
           <div
