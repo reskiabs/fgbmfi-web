@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="text-primary font-bold text-[27px] lg:text-6xl">
           Menjangkau Dunia Usaha <br className="hidden md:block" /> dengan Injil
-          Kristus
+          Kristus.
         </h1>
         <div className="h-[10px]" />
         <p className="text-xs font-normal text-primary lg:text-xl">
