@@ -1,5 +1,6 @@
-import ComingSoon from "@/components/ComingSoon";
 import Container from "@/components/contents/Container";
+import ContentTitle from "@/components/ContentTitle";
+import FaqAccordion from "@/components/FaqAccordion";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +11,14 @@ export const metadata: Metadata = {
 const AboutUsPage = () => {
   return (
     <Container>
-      <ComingSoon />
+      <section className="mb-12">
+        <div className="mb-2.5 lg:mb-10">
+          <ContentTitle title="Tentang Kami" removeButton />
+        </div>
+        <div>
+          <FaqAccordion />
+        </div>
+      </section>
     </Container>
   );
 };
