@@ -1,15 +1,13 @@
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 
-const ContentTitle = ({
-  title,
-  removeButton,
-  href,
-}: {
-  title: string;
-  removeButton?: boolean;
-  href: string;
-}) => {
+type ContentTitleProps =
+  | { title: string; removeButton?: false; href: string }
+  | { title: string; removeButton: true; href?: string };
+
+const ContentTitle = (props: ContentTitleProps) => {
+  const { title, removeButton } = props;
+
   return (
     <div className="flex items-center justify-between">
       <h2 className="text-primary font-bold text-xl md:text-[35px] lg:text-[40px]">
@@ -17,7 +15,7 @@ const ContentTitle = ({
       </h2>
       {!removeButton && (
         <Link
-          href={href}
+          href={props.href}
           className="flex items-center gap-5 text-xs font-medium uppercase text-primary lg:text-xl"
         >
           Lihat Lainnya
