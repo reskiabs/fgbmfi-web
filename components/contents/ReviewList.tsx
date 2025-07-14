@@ -54,7 +54,7 @@ const ReviewList = () => {
   return (
     <section className="px-[50px] py-[30px] bg-gradient-to-b from-secondary to-tertiary mt-[50px] lg:mt-[100px] lg:px-[150px] lg:py-[100px] ">
       <div className="flex items-center gap-[70px] lg:max-w-[1165px] lg:mx-auto">
-        <button onClick={handlePrev} className="hidden lg:block">
+        <button onClick={handlePrev} className="hidden md:block">
           <Image
             src={ArrowLeftActive}
             alt="Arrow Left"
@@ -65,7 +65,7 @@ const ReviewList = () => {
 
         <ReviewCard review={reviews[currentIndex]} />
 
-        <button onClick={handleNext} className="hidden lg:block">
+        <button onClick={handleNext} className="hidden md:block">
           <Image
             src={ArrowRightActive}
             alt="Arrow Right"

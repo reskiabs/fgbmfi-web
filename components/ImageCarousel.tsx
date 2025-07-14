@@ -25,30 +25,28 @@ const ImageCarousel = () => {
 
   return (
     <div>
-      <div className="overflow-hidden rounded-xl">
-        <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden lg:w-[1140px] lg:h-[525px] lg:rounded-[20px]">
-          {images.map((src, index) => (
-            <Image
-              key={index}
-              src={src}
-              alt={`Slide ${index + 1}`}
-              fill
-              className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out ${
-                index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-              placeholder="blur"
-              blurDataURL={ImagePlacholder}
-              priority={index === 0}
-            />
-          ))}
-        </div>
+      <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[460px] lg:w-[1140px] lg:h-[525px] md:rounded-[20px]">
+        {images.map((src, index) => (
+          <Image
+            key={index}
+            src={src}
+            alt={`Slide ${index + 1}`}
+            fill
+            className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out ${
+              index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+            placeholder="blur"
+            blurDataURL={ImagePlacholder}
+            priority={index === 0}
+          />
+        ))}
       </div>
 
-      <div className="flex justify-center mt-2.5 space-x-2 lg:space-x-[20px] lg:mt-5">
+      <div className="flex justify-center mt-2.5 space-x-2 md:space-x-[15px] lg:space-x-[20px] md:mt-5">
         {images.map((_, i) => (
           <div
             key={i}
-            className={`rounded-full size-1.5 lg:size-4 transition-all duration-300 ${
+            className={`rounded-full size-1.5 md:size-3 lg:size-4 transition-all duration-300 ${
               i === activeIndex ? "bg-teal-700" : "bg-gray-300"
             }`}
           />

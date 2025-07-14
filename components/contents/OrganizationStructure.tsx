@@ -9,13 +9,13 @@ const OrganizationStructure = () => {
           title="Struktur Organisasi FGBMFI Indonesia"
           removeButton
         />
-        <p className="text-xs font-normal lg:text-xl mt-2.5 mb-5 lg:my-[30px]">
+        <p className="text-xs font-normal md:text-xl mt-2.5 mb-5 md:my-[30px] text-justify">
           <em> Full Gospel Business Men’s Fellowship International</em>, yang
           disingkat FGBMFI, memiliki Struktur Organisasi Tingkat Nasional dengan
           Periode 2025-2030.
         </p>
 
-        <div className="relative border-2 flex justify-center items-center border-primary w-[339px] h-[207px] lg:border-4 lg:w-[1140px] lg:h-[695px]">
+        <div className="relative border-2 flex justify-center items-center border-primary w-[339px] h-[207px] lg:border-4 md:w-[920px] md:h-[610px] lg:w-[1140px] lg:h-[695px]">
           <Image
             src="/images/organization.png"
             alt="Organization Structure"
