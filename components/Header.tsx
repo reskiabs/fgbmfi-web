@@ -86,7 +86,7 @@ const Header = () => {
 
       {/* Mobile overlay menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 h-[45%] flex flex-col items-center justify-start px-8 pt-24 text-lg text-gray-800 bg-white md:hidden">
+        <div className="fixed inset-0 z-40 h-[100%] flex flex-col items-center justify-start px-8 pt-24 text-lg text-gray-800 bg-white md:hidden">
           {menuItems.map((item) => {
             const isActive =
               pathname === item.route || pathname.startsWith(item.route + "/");

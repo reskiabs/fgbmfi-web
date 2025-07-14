@@ -13,7 +13,7 @@ const ArticlesPage = () => {
     <Container>
       <section className="mb-12">
         <div className="mb-2.5 lg:mb-10">
-          <ContentTitle title="Artikel" removeButton />
+          <ContentTitle title="Artikel" removeButton href="/" />
         </div>
         <div className="grid gap-2.5 grid-cols-2 lg:grid-cols-3 lg:gap-11 content-center mb-[30px]">
           <ArticleCard />

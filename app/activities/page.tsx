@@ -14,7 +14,7 @@ const ActivitiesPage = () => {
     <Container>
       <section className="mb-12">
         <div className="mb-2.5 lg:mb-10 lg:flex lg:flex-row items-center justify-between">
-          <ContentTitle title="Liputan Kegiatan" removeButton />
+          <ContentTitle title="Liputan Kegiatan" removeButton href="/" />
           <div className="items-center hidden gap-5 lg:flex">
             <OutlineButton title="Nasional" />
             <OutlineButton title="Jenis Acara" />
