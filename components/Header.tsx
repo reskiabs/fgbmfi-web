@@ -25,15 +25,16 @@ const Header = () => {
   return (
     <>
       <header className="relative z-50 flex items-center justify-between px-6 py-4 bg-white md:pr-[60px] md:pl-[30px] lg:px-[200px]">
-        <Image
-          src="/icons/logo.svg"
-          alt="Logo"
-          width={60}
-          height={60}
-          blurDataURL={LogoPlaceholder}
-          placeholder="blur"
-          className="rounded-full"
-        />
+        <div className="relative size-[75px] md:size-[100px]">
+          <Image
+            src="/icons/logo.svg"
+            alt="Logo"
+            fill
+            blurDataURL={LogoPlaceholder}
+            placeholder="blur"
+            className="rounded-full"
+          />
+        </div>
 
         {/* Desktop menu */}
         <nav className="items-center hidden space-x-[38px] text-[15px] font-normal text-shadow-text md:flex hover:cursor-pointer">
@@ -49,7 +50,7 @@ const Header = () => {
                   key={item.name}
                   onClick={() => setShowContactPopup(true)}
                   className={clsx(
-                    "px-5 py-3 border rounded-full border-primary-dark text-primary-dark hover:bg-tertiary transition"
+                    "px-5 py-2.5 text-[15px] font-normal border rounded-full border-primary-dark text-primary-dark hover:bg-tertiary transition"
                   )}
                 >
                   {item.name}
