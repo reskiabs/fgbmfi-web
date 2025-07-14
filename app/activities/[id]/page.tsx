@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 const ActivityDetailPage = () => {
   return (
     <Container>
-      <div className="hidden md:block">
+      <div className="hidden md:block lg:hidden">
         <ComingSoon />
       </div>
-      <div className="md:hidden">
+      <div className="md:hidden lg:block">
         <DetailHeader
           page="Liputan Kegiatan"
           title="Lorem Ipsum is simply dummy text of the printing and typesetting

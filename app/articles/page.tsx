@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 const ArticlesPage = () => {
   return (
     <Container>
-      <div className="hidden md:block">
+      <div className="hidden md:block lg:hidden">
         <ComingSoon />
       </div>
-      <section className="mb-12 md:hidden">
+      <section className="mb-12 md:hidden lg:block">
         <div className="mb-2.5 lg:mb-10">
           <ContentTitle title="Artikel" removeButton href="/" />
         </div>

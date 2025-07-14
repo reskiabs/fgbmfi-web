@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 const ActivitiesPage = () => {
   return (
     <Container>
-      <div className="hidden md:block">
+      <div className="hidden md:block lg:hidden">
         <ComingSoon />
       </div>
-      <section className="mb-12 md:hidden">
+      <section className="mb-12 md:hidden lg:block">
         <div className="mb-2.5 lg:mb-10 lg:flex lg:flex-row items-center justify-between">
           <ContentTitle title="Liputan Kegiatan" removeButton href="/" />
           <div className="items-center hidden gap-5 lg:flex">
