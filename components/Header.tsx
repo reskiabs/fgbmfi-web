@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative z-50 flex items-center justify-between px-6 py-4 bg-white md:pr-[60px] md:pl-[30px] lg:px-[200px]">
+      <header className="relative z-50 flex items-center justify-between px-6 py-4 bg-white md:pr-[60px] md:pl-[30px] lg:px-[150px]">
         <div className="relative size-[75px] md:size-[100px]">
           <Image
             src="/icons/logo.svg"
