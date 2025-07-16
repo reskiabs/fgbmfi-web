@@ -10,16 +10,16 @@ const DetailHeader = ({
   date: string;
 }) => {
   return (
-    <div className="flex flex-col space-y-2.5 lg:space-y-5 mb-5 lg:mb-8">
-      <div className="flex items-center gap-1.5 font-medium text-[10px] text-primary lg:text-[15px] lg:hidden">
+    <div className="flex flex-col space-y-2.5 md:space-y-5 mb-5 md:mb-8">
+      <div className="flex items-center gap-1.5 font-medium text-[10px] text-primary md:text-[15px] md:hidden">
         <MoveLeft size={10} />
         Kembali
       </div>
-      <p className="font-medium text-[10px] text-primary lg:text-[15px]">
+      <p className="font-medium text-[10px] text-primary md:text-[15px]">
         FGBMFI Indonesia / {page}
       </p>
-      <h1 className="font-bold text-xl lg:text-[40px]">{title}</h1>
-      <p className="font-medium text-[10px] text-gray-400 lg:text-[15px]">
+      <h1 className="font-bold text-xl md:text-[40px]">{title}</h1>
+      <p className="font-medium text-[10px] text-gray-400 md:text-[15px]">
         Diunggah pada {date}
       </p>
     </div>

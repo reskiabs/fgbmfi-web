@@ -1,5 +1,4 @@
 import ArticleCard from "@/components/ArticleCard";
-import ComingSoon from "@/components/ComingSoon";
 import Container from "@/components/contents/Container";
 import ContentTitle from "@/components/ContentTitle";
 import Pagination from "@/components/Pagination";
@@ -12,14 +11,11 @@ export const metadata: Metadata = {
 const ArticlesPage = () => {
   return (
     <Container>
-      <div className="hidden md:block lg:hidden">
-        <ComingSoon />
-      </div>
-      <section className="mb-12 md:hidden lg:block">
-        <div className="mb-2.5 lg:mb-10">
+      <section className="mb-12">
+        <div className="mb-2.5 md:mb-10">
           <ContentTitle title="Artikel" removeButton href="/" />
         </div>
-        <div className="grid gap-2.5 grid-cols-2 lg:grid-cols-3 lg:gap-11 content-center mb-[30px]">
+        <div className="grid gap-2.5 grid-cols-2 md:grid-cols-3 md:gap-7 lg:grid-cols-3 lg:gap-11 content-center mb-[30px]">
           <ArticleCard />
           <ArticleCard />
           <ArticleCard />

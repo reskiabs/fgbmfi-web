@@ -1,5 +1,4 @@
 import ActivityCard from "@/components/ActivityCard";
-import ComingSoon from "@/components/ComingSoon";
 import Container from "@/components/contents/Container";
 import ContentTitle from "@/components/ContentTitle";
 import OutlineButton from "@/components/OutlineButton";
@@ -13,18 +12,15 @@ export const metadata: Metadata = {
 const ActivitiesPage = () => {
   return (
     <Container>
-      <div className="hidden md:block lg:hidden">
-        <ComingSoon />
-      </div>
-      <section className="mb-12 md:hidden lg:block">
-        <div className="mb-2.5 lg:mb-10 lg:flex lg:flex-row items-center justify-between">
+      <section className="mb-12 ">
+        <div className="mb-2.5 md:mb-10 lg:flex lg:flex-row items-center justify-between">
           <ContentTitle title="Liputan Kegiatan" removeButton href="/" />
           <div className="items-center hidden gap-5 lg:flex">
             <OutlineButton title="Nasional" />
             <OutlineButton title="Jenis Acara" />
           </div>
         </div>
-        <div className="grid gap-2.5 grid-cols-1 lg:grid-cols-2 lg:gap-11 content-center mb-[30px]">
+        <div className="grid gap-2.5 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
           <ActivityCard />
           <ActivityCard />
           <ActivityCard />
