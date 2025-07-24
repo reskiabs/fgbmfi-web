@@ -16,23 +16,27 @@ const faqData: FaqItem[] = [
   },
   {
     question: "Definisi Nama FGBMFI?",
-    answer: "Coming soon...",
+    answer:
+      "Full Gospel: Injil sepenuhnya dan para anggota FGBMen’s percaya sepenuhnya bahwa Kitab Kejadian sampai dengan Wahyu, adalah firman Tuhan.",
   },
   {
     question: "Apa itu FGBMFI?",
-    answer: "Coming soon...",
+    answer:
+      "Perkumpulan Usahawan Injil Sepenuhnya Internasional yang disingkat dengan “PUISI” atau dalam bahasa inggrisnya Full Gospel Business Men’s Fellowship International, yang disingkat “FGBMFI”",
   },
   {
     question: "Moto FGBMFI Indonesia",
-    answer: "Coming soon...",
+    answer: "“His Banner Over Us Is Love”, Panji-Nya di atasku adalah Kasih",
   },
   {
     question: "Visi dan Misi FGBMFI Indonesia",
-    answer: "Coming soon...",
+    answer:
+      "Visi FGBMFI diperoleh dari serangkaian nubuatan, yang diteguhkan melalui penglihatan dan dipertajam melalui terobosan pewahyuan",
   },
   {
     question: "Nilai-nilai FGBMFI Indonesia",
-    answer: "Coming soon...",
+    answer:
+      "Faithfulness (Kesetiaan): Setia mengasihi Tuhan dan Firman setiap saat dalam kondisi apapun",
   },
 ];
 

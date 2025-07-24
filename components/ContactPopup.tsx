@@ -51,26 +51,37 @@ const ContactPopup = ({ onClose }: ContactPopupProps) => {
             </span>
           </div>
 
-          <button className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center">
+          <button
+            onClick={() =>
+              window.open("https://maps.app.goo.gl/4fCszdCJcPYPNxdU7", "_blank")
+            }
+            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center"
+          >
             Direction Google Maps
           </button>
         </div>
         <div className="flex gap-[15px] md:gap-[30px] mt-4 md:mt-7 justify-center">
-          <div className="relative size-[30px] rounded-full border border-primary flex items-center justify-center  md:size-[45px] md:size-[60px]">
+          <a
+            href="https://instagram.com/fgbmfi_indonesia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative size-[30px] rounded-full border border-primary flex items-center justify-center  md:size-[45px] md:size-[60px] hover:bg-primary/10"
+          >
             <Image
               src={Instagram}
               alt="Instagram"
               className="md:size-[18px] md:size-[30px]"
             />
-          </div>
-          <div className="relative size-[30px] rounded-full border border-primary flex items-center justify-center  md:size-[45px] md:size-[60px]">
+          </a>
+
+          <div className="relative size-[30px] rounded-full border border-primary flex items-center justify-center  md:size-[45px] md:size-[60px] hover:bg-primary/10 hover:cursor-pointer">
             <Image
               src={TikTok}
               alt="Instagram"
               className="md:size-[18px] md:size-[30px]"
             />
           </div>
-          <div className="relative size-[30px] rounded-full border border-primary flex items-center justify-center  md:size-[45px] md:size-[60px]">
+          <div className="relative size-[30px] rounded-full border border-primary flex items-center justify-center  md:size-[45px] md:size-[60px] hover:bg-primary/10 hover:cursor-pointer">
             <Image
               src={Twitter}
               alt="Instagram"
