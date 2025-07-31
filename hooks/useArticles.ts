@@ -1,25 +1,6 @@
 import api from "@/lib/helper/api";
+import { Article } from "@/types/article";
 import { useEffect, useState } from "react";
-
-interface ArticleMeta {
-  title: string;
-  description: string;
-  tags: string;
-}
-
-export interface Article {
-  id: number;
-  title: string;
-  slug: string;
-  status: number;
-  content: string;
-  image_url: string;
-  image_name: string;
-  meta: ArticleMeta;
-  created_at: string;
-  updated_at: string;
-  full_image_url: string;
-}
 
 const useArticles = () => {
   const [articles, setArticles] = useState<Article[]>([]);

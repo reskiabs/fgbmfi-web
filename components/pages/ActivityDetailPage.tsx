@@ -8,10 +8,9 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 
 const ActivityDetailPage = () => {
-  const params = useParams();
-  const { id } = params;
+  const { slug } = useParams();
 
-  const { activity, loading, error } = useActivityDetail(id as string);
+  const { activity, loading, error } = useActivityDetail(slug as string);
 
   if (loading) return <p className="text-center py-10">Loading...</p>;
   if (error || !activity)

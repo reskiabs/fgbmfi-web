@@ -10,7 +10,6 @@ import DetailHeader from "../DetailHeader";
 
 const ArticleDetailPage = () => {
   const { slug } = useParams();
-  console.log("🔍 > ArticleDetailPage > slug:", slug);
   const { article, loading, error } = useArticleDetail(slug as string);
 
   if (loading) return <p className="text-center py-10">Loading...</p>;

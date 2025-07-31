@@ -1,31 +1,6 @@
+import { ArticleDetail } from "@/types/article";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-export interface ArticleTag {
-  id: number;
-  name: string;
-  slug: string;
-}
-
-export interface ArticleDetail {
-  id: number;
-  title: string;
-  slug: string;
-  status: number;
-  content: string;
-  image_url: string;
-  image_name: string;
-  meta: {
-    title: string;
-    description: string;
-    tags: string;
-  };
-  created_at: string;
-  updated_at: string;
-  full_image_url: string;
-  tags: ArticleTag[];
-  recommendations: ArticleDetail[]; // if needed
-}
 
 const useArticleDetail = (slug: string) => {
   const [article, setArticle] = useState<ArticleDetail | null>(null);
