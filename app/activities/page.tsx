@@ -16,8 +16,7 @@ const ActivitiesPage = () => {
         <div className="mb-2.5 md:mb-10 lg:flex lg:flex-row items-center justify-between">
           <ContentTitle title="Liputan Kegiatan" removeButton href="/" />
           <div className="items-center hidden gap-5 lg:flex">
-            <OutlineButton title="Nasional" />
-            <OutlineButton title="Jenis Acara" />
+            <OutlineButton title="Monthly" />
           </div>
         </div>
         <div className="grid gap-2.5 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">

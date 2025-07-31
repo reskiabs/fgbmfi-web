@@ -14,6 +14,7 @@ const ArticleDetailPage = () => {
     <>
       <Container>
         <DetailHeader
+          href="/articles"
           page="Artikel"
           title="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry."

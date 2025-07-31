@@ -12,6 +12,7 @@ const ActivityDetailPage = () => {
   return (
     <Container>
       <DetailHeader
+        href="/activities"
         page="Liputan Kegiatan"
         title="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry."

@@ -1,20 +1,26 @@
 import { MoveLeft } from "lucide-react";
+import Link from "next/link";
 
 const DetailHeader = ({
   page,
   title,
   date,
+  href,
 }: {
   page: string;
   title: string;
   date: string;
+  href?: string;
 }) => {
   return (
     <div className="flex flex-col space-y-2.5 md:space-y-5 mb-5 md:mb-8">
-      <div className="flex items-center gap-1.5 font-medium text-[10px] text-primary md:text-[15px] md:hidden">
-        <MoveLeft size={10} />
+      <Link
+        href={href || "/"}
+        className="flex items-center gap-1.5 md:gap-2.5 font-medium text-[10px] text-primary md:text-[15px]"
+      >
+        <MoveLeft className="size-3 md:size-5" />
         Kembali
-      </div>
+      </Link>
       <p className="font-medium text-[10px] text-primary md:text-[15px]">
         FGBMFI Indonesia / {page}
       </p>
