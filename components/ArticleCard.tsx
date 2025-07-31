@@ -1,4 +1,4 @@
-import { Article } from "@/hooks/useArticles";
+import { Article } from "@/types/article";
 import Image from "next/image";
 import Link from "next/link";
 
