@@ -1,8 +1,30 @@
+import api from "@/lib/helper/api";
+import { Banner } from "@/types/banner";
+import { useEffect, useState } from "react";
 import Button from "../Button";
 import ImageCarousel from "../ImageCarousel";
 import Container from "./Container";
 
 const HeroSection = () => {
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get<{ data: Banner[] }>("/banners");
+        const banners = response.data.data;
+        const desktopImages = banners.map(
+          (item) => item.full_desktop_image_url
+        );
+        setImages(desktopImages);
+      } catch (error) {
+        console.error("Gagal fetch data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Container>
       <div className="flex flex-col items-center justify-center text-center">
@@ -17,7 +39,7 @@ const HeroSection = () => {
         <div className="h-[20px] lg:h-[30px]" />
         <Button />
         <div className="h-[60px] md:h-[80px] lg:h-[100px]" />
-        <ImageCarousel />
+        {images.length > 0 && <ImageCarousel images={images} />}
       </div>
     </Container>
   );

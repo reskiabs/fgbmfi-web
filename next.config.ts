@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "source.unsplash.com",
       },
+      {
+        protocol: "http",
+        hostname: "fgbmfi.tiofelix.dev",
+      },
     ],
   },
 };

@@ -4,16 +4,7 @@ import { ImagePlacholder } from "@/lib/helper/ImagePlacholder";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const images = [
-  "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2340&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1522199710521-72d69614c702?q=80&w=2340&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2340&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2340&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1481277542470-605612bd2d61?q=80&w=2340&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2340&auto=format&fit=crop",
-];
-
-const ImageCarousel = () => {
+const ImageCarousel = ({ images }: { images: string[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
