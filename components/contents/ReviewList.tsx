@@ -47,7 +47,7 @@ const ReviewList = () => {
             text: testimonies[currentIndex].content,
             name: testimonies[currentIndex].name,
             role: testimonies[currentIndex].position,
-            image: testimonies[currentIndex].full_image_url,
+            image: testimonies[currentIndex].image_url,
           }}
         />
 

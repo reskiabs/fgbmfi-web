@@ -8,7 +8,7 @@ import Container from "./Container";
 const NewArticles = () => {
   const { articles, loading, error } = useArticles();
 
-  const latestArticles = articles.slice(0, 3); // Ambil 3 artikel
+  const latestArticles = articles.slice(0, 3);
 
   return (
     <Container>

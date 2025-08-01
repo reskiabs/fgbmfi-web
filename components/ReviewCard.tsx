@@ -13,9 +13,10 @@ const ReviewCard = ({ review }: { review: Review }) => {
   return (
     <div className="md:w-[750px] lg:w-[900px]">
       <Image src="/icons/quote.svg" alt="Quote" width={22} height={18} />
-      <p className="my-5 font-normal text-[15px] md:text-xl md:font-medium lg:text-[22px]">
-        <em>{review.text}</em>
-      </p>
+      <div
+        className="my-5 font-normal text-[15px] md:text-xl md:font-medium lg:text-[22px] prose prose-sm md:prose-base lg:prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: review.text }}
+      />
       <UserCard name={review.name} role={review.role} image={review.image} />
     </div>
   );

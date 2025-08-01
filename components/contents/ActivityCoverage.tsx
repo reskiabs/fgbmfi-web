@@ -18,17 +18,7 @@ const ActivityCoverage = () => {
 
         <div className="grid grid-cols-1 md:gap-7 lg:gap-11 md:grid-cols-2 space-y-2.5 md:space-y-0">
           {activities?.slice(0, 2).map((activity) => {
-            let imageSrc = "";
-            try {
-              const imageNames = JSON.parse(activity.image_names) as string[];
-              imageSrc = activity.image_url + imageNames[0];
-            } catch (err) {
-              console.warn(
-                "Invalid image_names JSON:",
-                activity.image_names,
-                err
-              );
-            }
+            const imageSrc = activity.full_images_url?.[0] || "";
 
             return (
               <ActivityCard

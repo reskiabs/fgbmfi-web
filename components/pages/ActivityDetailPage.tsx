@@ -20,13 +20,6 @@ const ActivityDetailPage = () => {
       </p>
     );
 
-  let imageNames: string[] = [];
-  try {
-    imageNames = JSON.parse(activity.image_names);
-  } catch (e) {
-    console.warn("Invalid image_names JSON:", activity.image_names, e);
-  }
-
   return (
     <Container>
       <DetailHeader
@@ -40,10 +33,10 @@ const ActivityDetailPage = () => {
         })}
       />
 
-      {imageNames.length > 0 && (
+      {activity.full_images_url?.[0] && (
         <div className="relative w-[340px] h-[170px] md:w-[920px] md:h-[424px] lg:w-[1140px] lg:h-[525px] rounded-[15px] md:rounded-[20px] overflow-hidden">
           <Image
-            src={activity.image_url + imageNames[0]}
+            src={activity.full_images_url[0]}
             alt={activity.title}
             fill
             className="object-cover"
@@ -58,17 +51,10 @@ const ActivityDetailPage = () => {
         />
       </div>
 
-      {imageNames.length > 1 && (
-        <div className="grid gap-2.5 grid-cols-2 md:gap-7 lg:gap-[40px] mt-5 mb-[50px] lg:mt-[30px] md:mt-[80px] lg:mb-[100px]">
-          {imageNames.slice(1).map((name, index) => (
-            <ActivityGallery
-              key={index}
-              src={activity.image_url + name}
-              alt={activity.title}
-            />
-          ))}
-        </div>
-      )}
+      {activity.full_images_url?.slice(1).map((url, index) => (
+        <ActivityGallery key={index} src={url} alt={activity.title} />
+      ))}
+      <div className="mb-[100px]" />
     </Container>
   );
 };

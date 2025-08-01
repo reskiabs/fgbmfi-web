@@ -10,7 +10,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -23,7 +23,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
             src={src}
             alt={`Slide ${index + 1}`}
             fill
-            className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute top-0 left-0 object-center transition-opacity duration-1000 ease-in-out ${
               index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
             placeholder="blur"
