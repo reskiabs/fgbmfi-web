@@ -1,5 +1,5 @@
+import api from "@/lib/helper/api";
 import { ArticleDetail } from "@/types/article";
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useArticleDetail = (slug: string) => {
@@ -10,9 +10,7 @@ const useArticleDetail = (slug: string) => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(
-          `https://fgbmfi.tiofelix.dev/api/articles/${slug}`
-        );
+        const response = await api.get(`/articles/${slug}`);
         setArticle(response.data.data);
       } catch {
         setError("Gagal memuat detail artikel.");

@@ -41,5 +41,5 @@ export interface ArticleDetail {
   updated_at: string;
   full_image_url: string;
   tags: ArticleTag[];
-  recommendations: ArticleDetail[]; // if needed
+  recommendations: ArticleDetail[];
 }
