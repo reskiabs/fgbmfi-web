@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
         hostname: "source.unsplash.com",
       },
       {
-        protocol: "http",
-        hostname: "fgbmfi.tiofelix.dev",
+        protocol: "https",
+        hostname: "cms-fgbmfi.semutechnology.com",
       },
     ],
   },
