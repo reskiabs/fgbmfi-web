@@ -12,7 +12,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div>

@@ -46,7 +46,7 @@ const FilterDropdown = ({ value, onChange }: Props) => {
                 onChange(opt.value);
                 setOpen(false);
               }}
-              className="px-4 py-2 text-xs md:text-md font-medium text-primary hover:bg-tertiary cursor-pointer"
+              className="px-4 py-2 text-xs md:text-lg font-medium text-primary hover:bg-tertiary cursor-pointer"
             >
               {opt.label}
             </div>

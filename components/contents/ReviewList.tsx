@@ -3,27 +3,27 @@ import useTestimonies from "@/hooks/useTestimonies";
 import ArrowLeftActive from "@/public/icons/arrow-left-active.svg";
 import ArrowRightActive from "@/public/icons/arrow-right-active.svg";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReviewCard from "../ReviewCard";
 
 const ReviewList = () => {
   const { testimonies, loading, error } = useTestimonies();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? testimonies.length - 1 : prev - 1));
-  };
+  }, [testimonies.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === testimonies.length - 1 ? 0 : prev + 1));
-  };
+  }, [testimonies.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
     }, 5000);
     return () => clearInterval(interval);
-  }, [testimonies.length]);
+  }, [handleNext]);
 
   if (loading) return <p className="text-center py-10">Loading reviews...</p>;
   if (error) return <p className="text-center py-10 text-red-500">{error}</p>;
