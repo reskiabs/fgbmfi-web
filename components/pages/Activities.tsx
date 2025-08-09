@@ -92,7 +92,7 @@ const Activities = () => {
   return (
     <Container>
       <section className="mb-12">
-        <div className="mb-2.5 md:mb-10 lg:flex lg:flex-row items-center justify-between">
+        <div className="mb-5 md:mb-10 flex items-center justify-between">
           <ContentTitle title="Liputan Kegiatan" removeButton href="/" />
           <FilterDropdown
             value={filter}
@@ -103,7 +103,7 @@ const Activities = () => {
           />
         </div>
 
-        <div className="grid gap-2.5 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
+        <div className="grid gap-4 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
           {paginatedActivities?.map((activity) => {
             const imageSrc = activity.full_images_url?.[0] || "";
             return (
