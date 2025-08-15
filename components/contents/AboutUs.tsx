@@ -4,11 +4,11 @@ import Container from "./Container";
 const AboutUs = () => {
   return (
     <Container>
-      <section className="mt-[50px] md:flex md:justify-between md:mt-[80px] lg:mt-[100px]">
-        <div className="md:max-w-[353px] mb-2.5">
+      <section className="mt-[50px] md:mt-[80px] lg:mt-[100px]">
+        <div className="mb-5">
           <ContentTitle title="Tentang FGBMFI Indonesia" removeButton />
         </div>
-        <p className="text-xs font-normal md:text-[17px] lg:text-xl md:max-w-[470px] lg:max-w-[550px] text-justify">
+        <p className="text-sm font-normal md:text-[17px] lg:text-xl text-justify">
           Perkumpulan Usahawan Injil Sepenuhnya International yang disingkat
           dengan PUISI atau dalam Bahasa Inggrisnya
           <em> Full Gospel Business Men’s Fellowship International</em>, yang

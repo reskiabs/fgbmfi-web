@@ -14,7 +14,7 @@ const OrganizationStructure = () => {
           title="Struktur Organisasi FGBMFI Indonesia"
           removeButton
         />
-        <p className="text-xs font-normal md:text-xl mt-2.5 mb-5 md:my-[30px] text-justify">
+        <p className="text-sm font-normal md:text-xl mt-2.5 mb-5 md:my-[30px] text-justify">
           <em> Full Gospel Business Men’s Fellowship International</em>, yang
           disingkat FGBMFI, memiliki Struktur Organisasi Tingkat Nasional dengan
           Periode 2025-2030.

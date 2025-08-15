@@ -40,7 +40,7 @@ export default function FaqAccordion({ aboutUsItems }: FaqAccordionProps) {
             {isOpen && (
               <div className="px-[15px] border-gray-200 pb-[15px] lg:px-6 lg:pb-7">
                 <div
-                  className="ttext-xs font-normal text-gray-400 text-justify md:text-xl"
+                  className="text-xs font-normal text-gray-500 text-justify md:text-xl"
                   dangerouslySetInnerHTML={{ __html: item.content }}
                 />
               </div>

@@ -1,6 +1,8 @@
 import dayjs from "dayjs";
+import "dayjs/locale/id";
 import Image from "next/image";
 import Link from "next/link";
+dayjs.locale("id");
 
 interface ActivityCardProps {
   src: string;
@@ -8,6 +10,7 @@ interface ActivityCardProps {
   date: string;
   href: string;
 }
+
 const ActivityCard = ({ src, title, date, href }: ActivityCardProps) => {
   return (
     <Link href={href}>
@@ -15,8 +18,8 @@ const ActivityCard = ({ src, title, date, href }: ActivityCardProps) => {
         <Image src={src} alt={title} fill className="object-center" />
       </div>
       <div className="mt-2.5 md:mt-5">
-        <h2 className="font-bold text-[15px] md:text-xl">{title}</h2>
-        <p className="font-medium text-[10px] text-gray-400 md:text-[15px] md:mt-0.5">
+        <h2 className="font-bold text-[16px] md:text-2xl">{title}</h2>
+        <p className="font-medium text-sm text-gray-400 md:text-lg md:mt-0.5">
           {dayjs(date).format("DD MMMM YYYY")}
         </p>
       </div>

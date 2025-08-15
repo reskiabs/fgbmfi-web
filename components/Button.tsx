@@ -9,7 +9,7 @@ const Button = () => {
   return (
     <button
       onClick={handleClick}
-      className="w-[130px] h-[35px] text-white bg-primary rounded-full hover:bg-primary-dark text-xs lg:text-xl font-medium lg:w-[250px] lg:h-[60px]"
+      className="w-[150px] h-[40px] text-white bg-primary rounded-full hover:bg-primary-dark text-sm lg:text-xl font-medium lg:w-[250px] lg:h-[60px] hover:cursor-pointer"
     >
       Gabung Sekarang
     </button>

@@ -1,30 +1,31 @@
 "use client";
 
+import LoaderContent from "@/components/LoaderContent";
 import dynamic from "next/dynamic";
 const AboutUs = dynamic(() => import("@/components/contents/AboutUs"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <LoaderContent />,
 });
 const ActivityCoverage = dynamic(
   () => import("@/components/contents/ActivityCoverage"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <LoaderContent />,
   }
 );
 
 const HeroSection = dynamic(() => import("@/components/contents/HeroSection"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <LoaderContent />,
 });
 const NewArticles = dynamic(() => import("@/components/contents/NewArticles"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <LoaderContent />,
 });
 const OrganizationStructure = dynamic(
   () => import("@/components/contents/OrganizationStructure"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <LoaderContent />,
   }
 );
 const ReviewList = dynamic(() => import("@/components/contents/ReviewList"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <LoaderContent />,
 });
 
 export default function Home() {

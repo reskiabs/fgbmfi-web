@@ -16,7 +16,7 @@ const ContentTitle = (props: ContentTitleProps) => {
       {!removeButton && (
         <Link
           href={props.href}
-          className="flex items-center gap-5 text-xs font-medium uppercase text-primary lg:text-xl hover:underline hover:cursor-pointer"
+          className="flex items-center gap-5 text-xs font-medium uppercase text-primary lg:text-xl hover:cursor-pointer"
         >
           Lihat Lainnya
           <MoveRight className="hidden md:inline" />

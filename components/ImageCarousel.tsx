@@ -1,22 +1,46 @@
 "use client";
 
 import { ImagePlacholder } from "@/lib/helper/ImagePlacholder";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ImageCarousel = ({ images }: { images: string[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const resetTimeout = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    resetTimeout();
+    timeoutRef.current = setTimeout(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
-    return () => clearInterval(interval);
-  }, [images.length]);
+
+    return () => resetTimeout();
+  }, [activeIndex, images.length]);
+
+  // Fungsi pindah slide manual
+  const goToSlide = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  // Fungsi pindah slide berikutnya/sebelumnya (opsional)
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
-    <div>
-      <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[460px] lg:w-[1140px] lg:h-[525px] md:rounded-[20px]">
+    <div className="relative group">
+      <div className="relative w-[340px] h-[191px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[517px] lg:w-[1140px] lg:h-[641px] md:rounded-[20px] hover:cursor-pointer">
         {images.map((src, index) => (
           <Image
             key={index}
@@ -31,13 +55,45 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
             priority={index === 0}
           />
         ))}
+
+        {/* Tombol prev */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 md:left-3 lg:left-4 top-1/2 -translate-y-1/2 
+             bg-black/40 hover:bg-black/70 text-white rounded-full 
+             p-1.5 md:p-3 
+             z-20 hover:cursor-pointer
+             lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <ChevronLeft
+            size={20} // Mobile
+            className="md:size-10" // Tablet & Desktop
+          />
+        </button>
+
+        {/* Tombol next */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 md:right-3 lg:right-4 top-1/2 -translate-y-1/2 
+             bg-black/40 hover:bg-black/70 text-white rounded-full 
+             p-1.5 md:p-3 
+             z-20 hover:cursor-pointer
+             lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <ChevronRight
+            size={20} // Mobile
+            className="md:size-10" // Tablet & Desktop
+          />
+        </button>
       </div>
 
+      {/* Indikator titik */}
       <div className="flex justify-center mt-2.5 space-x-2 md:space-x-[15px] lg:space-x-[20px] md:mt-5">
         {images.map((_, i) => (
           <div
             key={i}
-            className={`rounded-full size-1.5 md:size-3 lg:size-4 transition-all duration-300 ${
+            onClick={() => goToSlide(i)}
+            className={`rounded-full size-1.5 md:size-3 lg:size-4 cursor-pointer transition-all duration-300 ${
               i === activeIndex ? "bg-teal-700" : "bg-gray-300"
             }`}
           />

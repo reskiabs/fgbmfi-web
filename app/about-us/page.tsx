@@ -3,10 +3,15 @@
 import Container from "@/components/contents/Container";
 import ContentTitle from "@/components/ContentTitle";
 import FaqAccordion from "@/components/FaqAccordion";
+import LoaderContent from "@/components/LoaderContent";
+import SomethingWentWrong from "@/components/SomethingWentWrong";
 import useAboutUs from "@/hooks/useAboutUs";
 
 const AboutUsPage = () => {
   const { aboutItems, loading, error } = useAboutUs();
+
+  if (loading) return <LoaderContent />;
+  if (error) return <SomethingWentWrong />;
 
   return (
     <Container>
@@ -15,13 +20,7 @@ const AboutUsPage = () => {
           <ContentTitle title="Tentang Kami" removeButton />
         </div>
 
-        {loading ? (
-          <p className="text-center py-10">Loading...</p>
-        ) : error ? (
-          <p className="text-center py-10 text-red-500">Error: {error}</p>
-        ) : (
-          aboutItems && <FaqAccordion aboutUsItems={aboutItems} />
-        )}
+        {aboutItems && <FaqAccordion aboutUsItems={aboutItems} />}
       </section>
     </Container>
   );

@@ -33,7 +33,7 @@ const HeroSection = () => {
           Kristus.
         </h1>
         <div className="h-[10px]" />
-        <p className="text-xs font-normal text-primary md:text-[17px] lg:text-xl">
+        <p className="text-sm font-normal text-primary md:text-[17px] lg:text-xl">
           Full Gospel Business Men’s Fellowship International - Indonesia
         </p>
         <div className="h-[20px] lg:h-[30px]" />

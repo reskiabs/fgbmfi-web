@@ -1,3 +1,4 @@
+import ClientGTM from "@/components/ClientGTM";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import type { Metadata } from "next";
@@ -28,15 +29,16 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`
-    min-h-screen flex flex-col 
-    bg-gradient-to-b from-[#E8F2F2] to-white 
-    ${geistSans.variable} ${geistMono.variable} antialiased
-  `}
+          min-h-screen flex flex-col 
+          bg-gradient-to-b from-[#E8F2F2] to-white 
+          ${geistSans.variable} ${geistMono.variable} antialiased
+        `}
       >
         <Header />
         <main className="flex-1 pt-[30px] md:pt-[40px] lg:pt-[100px]">
           {children}
         </main>
+        <ClientGTM />
         <Footer />
       </body>
     </html>
