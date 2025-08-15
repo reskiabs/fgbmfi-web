@@ -22,7 +22,7 @@ const NewArticles = () => {
           <ContentTitle title="Artikel Terbaru" href="/articles" />
         </div>
 
-        <div className="grid grid-cols-1 md:gap-7 lg:gap-11 md:grid-cols-2 space-y-2.5 md:space-y-0">
+        <div className="grid grid-cols-1 md:gap-7 lg:gap-11 md:grid-cols-2 gap-y-7 md:space-y-0">
           {latestArticles.slice(0, 2).map((article) => {
             const imageSrc = article.full_image_url || "";
             const date = article.created_at || article.created_at || "";
@@ -37,21 +37,6 @@ const NewArticles = () => {
               />
             );
           })}
-
-          {latestArticles[2] && (
-            <div className="hidden md:flex">
-              <ActivityCard
-                src={latestArticles[2].full_image_url || ""}
-                title={latestArticles[2].title}
-                date={
-                  latestArticles[2].created_at ||
-                  latestArticles[2].created_at ||
-                  ""
-                }
-                href={`/articles/${latestArticles[2].slug}`}
-              />
-            </div>
-          )}
         </div>
       </section>
     </Container>

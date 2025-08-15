@@ -27,9 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <ClientGTM />
-      </head>
       <body
         className={`
           min-h-screen flex flex-col 
@@ -41,6 +38,7 @@ export default function RootLayout({
         <main className="flex-1 pt-[30px] md:pt-[40px] lg:pt-[100px]">
           {children}
         </main>
+        <ClientGTM />
         <Footer />
       </body>
     </html>

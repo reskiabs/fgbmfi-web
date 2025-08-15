@@ -40,7 +40,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
 
   return (
     <div className="relative group">
-      <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[460px] lg:w-[1140px] lg:h-[641px] md:rounded-[20px] hover:cursor-pointer">
+      <div className="relative w-[340px] h-[191px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[517px] lg:w-[1140px] lg:h-[641px] md:rounded-[20px] hover:cursor-pointer">
         {images.map((src, index) => (
           <Image
             key={index}
@@ -59,23 +59,31 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
         {/* Tombol prev */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 
-             bg-black/40 hover:bg-black/70 text-white rounded-full p-1.5 md:p-3 
+          className="absolute left-2 md:left-3 lg:left-4 top-1/2 -translate-y-1/2 
+             bg-black/40 hover:bg-black/70 text-white rounded-full 
+             p-1.5 md:p-3 
              z-20 hover:cursor-pointer
-             md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+             lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"
         >
-          <ChevronLeft size={20} className="md:size-12" />
+          <ChevronLeft
+            size={20} // Mobile
+            className="md:size-10" // Tablet & Desktop
+          />
         </button>
 
         {/* Tombol next */}
         <button
           onClick={nextSlide}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 
-             bg-black/40 hover:bg-black/70 text-white rounded-full p-1.5 md:p-3 
+          className="absolute right-2 md:right-3 lg:right-4 top-1/2 -translate-y-1/2 
+             bg-black/40 hover:bg-black/70 text-white rounded-full 
+             p-1.5 md:p-3 
              z-20 hover:cursor-pointer
-             md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+             lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"
         >
-          <ChevronRight size={20} className="md:size-12" />
+          <ChevronRight
+            size={20} // Mobile
+            className="md:size-10" // Tablet & Desktop
+          />
         </button>
       </div>
 

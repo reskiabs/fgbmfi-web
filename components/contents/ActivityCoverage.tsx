@@ -18,7 +18,7 @@ const ActivityCoverage = () => {
           <ContentTitle title="Liputan Kegiatan" href="/activities" />
         </div>
 
-        <div className="grid grid-cols-1 md:gap-7 lg:gap-11 md:grid-cols-2 space-y-2.5 md:space-y-0">
+        <div className="grid grid-cols-1 md:gap-7 lg:gap-11 md:grid-cols-2 gap-y-7 md:space-y-0">
           {activities?.slice(0, 2).map((activity) => {
             const imageSrc = activity.full_images_url?.[0] || "";
 
