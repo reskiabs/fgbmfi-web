@@ -1,18 +1,15 @@
 import { Article } from "@/types/article";
+import dayjs from "dayjs";
+import "dayjs/locale/id";
 import Image from "next/image";
 import Link from "next/link";
+dayjs.locale("id");
 
 interface ArticleCardProps {
   article: Article;
 }
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
-  const date = new Date(article.created_at).toLocaleDateString("id-ID", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-
   return (
     <Link
       href={`/articles/${article.slug}`}
@@ -28,13 +25,13 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
       <div className="absolute bottom-0 z-20 pb-5 pl-3 text-white pr-7 lg:pl-6 lg:pb-10">
-        <p className="text-[10px] font-medium mb-1.5 md:text-[15px] md:mb-2.5">
-          {date}
+        <p className="text-sm font-medium mb-1.5 md:text-lg md:mb-2.5">
+          {dayjs(article.created_at).format("DD MMMM YYYY")}
         </p>
-        <h3 className="text-[15px] font-bold mb-2.5 md:text-xl md:mb-5">
+        <h3 className="text-lg font-bold mb-2.5 md:text-xl md:mb-5">
           {article.title}
         </h3>
-        <p className="text-[10px] font-normal text-[#FFA325] md:text-[15px]">
+        <p className="text-sm font-normal text-[#FFA325] md:text-lg">
           Baca Selengkapnya &gt;
         </p>
       </div>

@@ -1,11 +1,13 @@
 "use client";
 
-import ArticleCard from "@/components/ArticleCard";
+import ActivityCard from "@/components/ActivityCard";
 import Container from "@/components/contents/Container";
 import ContentTitle from "@/components/ContentTitle";
 import Pagination from "@/components/Pagination";
 import useArticles from "@/hooks/useArticles";
 import { useState } from "react";
+import LoaderContent from "../LoaderContent";
+import SomethingWentWrong from "../SomethingWentWrong";
 
 const Articles = () => {
   const { articles, loading, error } = useArticles();
@@ -18,34 +20,41 @@ const Articles = () => {
     currentPage * itemsPerPage
   );
 
+  if (loading) return <LoaderContent />;
+  if (error) return <SomethingWentWrong />;
+
   return (
     <Container>
       <section className="mb-12">
         <div className="mb-2.5 md:mb-10">
           <ContentTitle title="Artikel" removeButton href="/" />
         </div>
+        <>
+          <div className="grid gap-4 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
+            {paginatedArticles.map((article) => {
+              const imageSrc = article.full_image_url || "";
+              const date = article.created_at || "";
 
-        {loading ? (
-          <p className="text-center">Loading...</p>
-        ) : error ? (
-          <p className="text-center text-red-500">{error}</p>
-        ) : (
-          <>
-            <div className="grid gap-2.5 grid-cols-2 md:grid-cols-3 md:gap-7 lg:grid-cols-3 lg:gap-11 content-center mb-[30px]">
-              {paginatedArticles.map((article) => (
-                <ArticleCard key={article.id} article={article} />
-              ))}
-            </div>
+              return (
+                <ActivityCard
+                  key={article.id}
+                  src={imageSrc}
+                  title={article.title}
+                  date={date}
+                  href={`/articles/${article.slug}`} // sesuaikan dengan slug atau id
+                />
+              );
+            })}
+          </div>
 
-            <div className="flex justify-center lg:justify-end">
-              <Pagination
-                totalPages={totalPages}
-                currentPage={currentPage}
-                onPageChange={(page) => setCurrentPage(page)}
-              />
-            </div>
-          </>
-        )}
+          <div className="flex justify-center lg:justify-end">
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </div>
+        </>
       </section>
     </Container>
   );

@@ -7,14 +7,15 @@ import ArticleCard from "../ArticleCard";
 import Container from "../contents/Container";
 import ContentTitle from "../ContentTitle";
 import DetailHeader from "../DetailHeader";
+import LoaderContent from "../LoaderContent";
+import SomethingWentWrong from "../SomethingWentWrong";
 
 const ArticleDetailPage = () => {
   const { slug } = useParams();
   const { article, loading, error } = useArticleDetail(slug as string);
 
-  if (loading) return <p className="text-center py-10">Loading...</p>;
-  if (error || !article)
-    return <p className="text-center py-10">Error: {error || "Not found"}</p>;
+  if (loading) return <LoaderContent />;
+  if (error || !article) return <SomethingWentWrong />;
 
   return (
     <>
@@ -30,18 +31,19 @@ const ArticleDetailPage = () => {
           })}
         />
 
-        <div className="relative w-[340px] h-[170px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[424px] lg:w-[1140px] lg:h-[525px] md:rounded-[20px]">
+        <div className="relative w-[340px] md:w-[920px] lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
           <Image
             src={article.full_image_url}
             alt={article.title}
-            fill
-            className="object-cover"
+            width={1140}
+            height={0}
+            className="w-full h-auto object-cover"
           />
         </div>
 
-        <div className="mt-5 md:mt-8">
+        <div className="mt-5 md:mt-11">
           <div
-            className="text-xs font-normal text-justify md:text-xl"
+            className="text-sm font-normal text-justify md:text-xl"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
         </div>

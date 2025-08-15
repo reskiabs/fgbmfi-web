@@ -4,21 +4,21 @@ import ActivityGallery from "@/components/ActivityGallery";
 import Container from "@/components/contents/Container";
 import DetailHeader from "@/components/DetailHeader";
 import useActivityDetail from "@/hooks/useActivityDetail";
+import dayjs from "dayjs";
+import "dayjs/locale/id";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import LoaderContent from "../LoaderContent";
+import SomethingWentWrong from "../SomethingWentWrong";
+dayjs.locale("id");
 
 const ActivityDetailPage = () => {
   const { slug } = useParams();
 
   const { activity, loading, error } = useActivityDetail(slug as string);
 
-  if (loading) return <p className="text-center py-10">Loading...</p>;
-  if (error || !activity)
-    return (
-      <p className="text-center py-10">
-        Error: {error || "Activity not found"}
-      </p>
-    );
+  if (loading) return <LoaderContent />;
+  if (error || !activity) return <SomethingWentWrong />;
 
   return (
     <Container>
@@ -26,27 +26,24 @@ const ActivityDetailPage = () => {
         href="/activities"
         page="Liputan Kegiatan"
         title={activity.title}
-        date={new Date(activity.created_at).toLocaleDateString("id-ID", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-        })}
+        date={dayjs(activity.created_at).format("DD MMMM YYYY")}
       />
 
       {activity.full_images_url?.[0] && (
-        <div className="relative w-[340px] h-[170px] md:w-[920px] md:h-[424px] lg:w-[1140px] lg:h-[525px] rounded-[15px] md:rounded-[20px] overflow-hidden">
+        <div className="relative w-[340px] md:w-[920px] lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
           <Image
             src={activity.full_images_url[0]}
             alt={activity.title}
-            fill
-            className="object-cover"
+            width={1140}
+            height={0}
+            className="w-full h-auto object-cover"
           />
         </div>
       )}
 
-      <div className="mt-5 md:mt-8">
+      <div className="mt-5 md:mt-11">
         <div
-          className="text-xs font-normal text-justify md:text-xl"
+          className="text-sm font-normal text-justify md:text-xl"
           dangerouslySetInnerHTML={{ __html: activity.content }}
         />
       </div>

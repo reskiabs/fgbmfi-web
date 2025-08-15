@@ -1,13 +1,15 @@
 import useActivities from "@/hooks/useActivities";
 import ActivityCard from "../ActivityCard";
 import ContentTitle from "../ContentTitle";
+import LoaderContent from "../LoaderContent";
+import SomethingWentWrong from "../SomethingWentWrong";
 import Container from "./Container";
 
 const ActivityCoverage = () => {
   const { activities, loading, error } = useActivities();
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <LoaderContent />;
+  if (error) return <SomethingWentWrong />;
 
   return (
     <Container>

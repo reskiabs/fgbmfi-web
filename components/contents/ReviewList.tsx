@@ -4,7 +4,9 @@ import ArrowLeftActive from "@/public/icons/arrow-left-active.svg";
 import ArrowRightActive from "@/public/icons/arrow-right-active.svg";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import LoaderContent from "../LoaderContent";
 import ReviewCard from "../ReviewCard";
+import SomethingWentWrong from "../SomethingWentWrong";
 
 const ReviewList = () => {
   const { testimonies, loading, error } = useTestimonies();
@@ -25,8 +27,8 @@ const ReviewList = () => {
     return () => clearInterval(interval);
   }, [handleNext]);
 
-  if (loading) return <p className="text-center py-10">Loading reviews...</p>;
-  if (error) return <p className="text-center py-10 text-red-500">{error}</p>;
+  if (loading) return <LoaderContent />;
+  if (error) return <SomethingWentWrong />;
   if (testimonies.length === 0) return null;
 
   return (

@@ -1,14 +1,19 @@
 "use client";
 
 import useArticles from "@/hooks/useArticles";
-import ArticleCard from "../ArticleCard";
+import ActivityCard from "../ActivityCard";
 import ContentTitle from "../ContentTitle";
+import LoaderContent from "../LoaderContent";
+import SomethingWentWrong from "../SomethingWentWrong";
 import Container from "./Container";
 
 const NewArticles = () => {
   const { articles, loading, error } = useArticles();
 
   const latestArticles = articles.slice(0, 3);
+
+  if (loading) return <LoaderContent />;
+  if (error) return <SomethingWentWrong />;
 
   return (
     <Container>
@@ -17,23 +22,37 @@ const NewArticles = () => {
           <ContentTitle title="Artikel Terbaru" href="/articles" />
         </div>
 
-        {loading ? (
-          <p className="text-center">Loading...</p>
-        ) : error ? (
-          <p className="text-center text-red-500">{error}</p>
-        ) : (
-          <div className="grid content-center grid-cols-2 gap-3 md:grid-cols-3 md:gap-9 lg:gap-11">
-            {latestArticles.slice(0, 2).map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
+        <div className="grid grid-cols-1 md:gap-7 lg:gap-11 md:grid-cols-2 space-y-2.5 md:space-y-0">
+          {latestArticles.slice(0, 2).map((article) => {
+            const imageSrc = article.full_image_url || "";
+            const date = article.created_at || article.created_at || "";
 
-            {latestArticles[2] && (
-              <div className="hidden md:flex">
-                <ArticleCard article={latestArticles[2]} />
-              </div>
-            )}
-          </div>
-        )}
+            return (
+              <ActivityCard
+                key={article.id}
+                src={imageSrc}
+                title={article.title}
+                date={date}
+                href={`/articles/${article.slug}`}
+              />
+            );
+          })}
+
+          {latestArticles[2] && (
+            <div className="hidden md:flex">
+              <ActivityCard
+                src={latestArticles[2].full_image_url || ""}
+                title={latestArticles[2].title}
+                date={
+                  latestArticles[2].created_at ||
+                  latestArticles[2].created_at ||
+                  ""
+                }
+                href={`/articles/${latestArticles[2].slug}`}
+              />
+            </div>
+          )}
+        </div>
       </section>
     </Container>
   );

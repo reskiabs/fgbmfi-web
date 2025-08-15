@@ -7,6 +7,8 @@ import Pagination from "@/components/Pagination";
 import useActivities from "@/hooks/useActivities";
 import { useState } from "react";
 import FilterDropdown from "../FilterDropdown";
+import LoaderContent from "../LoaderContent";
+import SomethingWentWrong from "../SomethingWentWrong";
 
 type FilterType =
   | "ALL"
@@ -86,8 +88,8 @@ const Activities = () => {
     currentPage * itemsPerPage
   );
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <LoaderContent />;
+  if (error) return <SomethingWentWrong />;
 
   return (
     <Container>
