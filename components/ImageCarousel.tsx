@@ -9,7 +9,6 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Fungsi untuk reset interval agar manual click tidak bentrok
   const resetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -40,8 +39,8 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className="relative">
-      <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[460px] lg:w-[1140px] lg:h-[641px] md:rounded-[20px]">
+    <div className="relative group">
+      <div className="relative h-[170px] w-[340px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[460px] lg:w-[1140px] lg:h-[641px] md:rounded-[20px] hover:cursor-pointer">
         {images.map((src, index) => (
           <Image
             key={index}
@@ -57,16 +56,24 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
           />
         ))}
 
-        {/* Tombol prev/next */}
+        {/* Tombol prev */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full p-1 md:p-3 z-20 hover:cursor-pointer"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 
+             bg-black/40 hover:bg-black/70 text-white rounded-full p-1.5 md:p-3 
+             z-20 hover:cursor-pointer
+             md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
         >
           <ChevronLeft size={20} className="md:size-12" />
         </button>
+
+        {/* Tombol next */}
         <button
           onClick={nextSlide}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full p-1 md:p-3 z-20 hover:cursor-pointer"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 
+             bg-black/40 hover:bg-black/70 text-white rounded-full p-1.5 md:p-3 
+             z-20 hover:cursor-pointer
+             md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
         >
           <ChevronRight size={20} className="md:size-12" />
         </button>
