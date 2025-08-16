@@ -74,33 +74,11 @@ const ContactPopup = ({ onClose }: ContactPopupProps) => {
                 "_blank"
               )
             }
-            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center"
+            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center hover:cursor-pointer"
           >
             Direction Google Maps
           </button>
         </div>
-
-        {/* <div className="flex gap-[15px] md:gap-[30px] mt-4 md:mt-7 justify-center">
-          {[
-            { src: Instagram, link: "https://instagram.com/fgbmfi_indonesia" },
-            { src: TikTok, link: "#" },
-            { src: Twitter, link: "#" },
-          ].map((social, i) => (
-            <a
-              key={i}
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative size-[30px] rounded-full border border-primary flex items-center justify-center md:size-[45px] md:size-[60px] hover:bg-primary/10"
-            >
-              <Image
-                src={social.src}
-                alt="social icon"
-                className="md:size-[18px] md:size-[30px]"
-              />
-            </a>
-          ))}
-        </div> */}
       </div>
     </div>
   );

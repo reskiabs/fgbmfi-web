@@ -35,9 +35,7 @@ export default function RootLayout({
         `}
       >
         <Header />
-        <main className="flex-1 pt-[30px] md:pt-[40px] lg:pt-[100px]">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <ClientGTM />
         <Footer />
       </body>

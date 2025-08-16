@@ -10,7 +10,12 @@ const UserCard = ({ name, role, image }: UserCardProps) => {
   return (
     <div className="flex items-center gap-2.5">
       <div className="relative overflow-hidden rounded-full size-11">
-        <Image src={image} alt="User" fill className="object-cover" />
+        <Image
+          src={image ? image : "/image-placeholder.png"}
+          alt="User"
+          fill
+          className="object-cover"
+        />
       </div>
       <div>
         <h1 className="font-bold text-[15px] text-neutral-900">{name}</h1>

@@ -1,14 +1,17 @@
 "use client";
 
 import useArticleDetail from "@/hooks/useArticleDetail";
+import dayjs from "dayjs";
+import "dayjs/locale/id";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import ArticleCard from "../ArticleCard";
+import ActivityCard from "../ActivityCard";
 import Container from "../contents/Container";
 import ContentTitle from "../ContentTitle";
 import DetailHeader from "../DetailHeader";
 import LoaderContent from "../LoaderContent";
 import SomethingWentWrong from "../SomethingWentWrong";
+dayjs.locale("id");
 
 const ArticleDetailPage = () => {
   const { slug } = useParams();
@@ -24,11 +27,7 @@ const ArticleDetailPage = () => {
           href="/articles"
           page="Artikel"
           title={article.title}
-          date={new Date(article.created_at).toLocaleDateString("id-ID", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          })}
+          date={dayjs(article.created_at).format("DD MMMM YYYY")}
         />
 
         <div className="relative w-[340px] md:w-[920px] lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
@@ -55,9 +54,15 @@ const ArticleDetailPage = () => {
             <ContentTitle title="Artikel Lainnya" removeButton />
           </div>
           <div className="flex items-center lg:max-w-[1165px] lg:mx-auto">
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-11">
+            <div className="grid gap-4 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
               {article.recommendations.map((rec) => (
-                <ArticleCard key={rec.id} article={rec} />
+                <ActivityCard
+                  key={rec.id}
+                  src={rec.full_image_url}
+                  title={rec.title}
+                  date={rec.created_at}
+                  href={`/articles/${rec.slug}`}
+                />
               ))}
             </div>
           </div>

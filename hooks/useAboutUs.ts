@@ -12,10 +12,8 @@ export default function useAboutUs() {
       try {
         const response = await api.get<AboutUsResponse>("/about-us");
         if (response.data.success) {
-          const sorted = [...response.data.data].sort(
-            (a, b) =>
-              new Date(a.created_at).getTime() -
-              new Date(b.created_at).getTime()
+          const sorted = [...response.data.data].sort((a, b) =>
+            a.title.localeCompare(b.title)
           );
           setAboutItems(sorted);
         } else {
