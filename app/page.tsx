@@ -30,7 +30,7 @@ const ReviewList = dynamic(() => import("@/components/contents/ReviewList"), {
 
 export default function Home() {
   return (
-    <main>
+    <main className="pt-[30px] md:pt-[40px] lg:pt-[100px]">
       <HeroSection />
       <AboutUs />
       <ActivityCoverage />
