@@ -44,7 +44,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
         {images.map((src, index) => (
           <Image
             key={index}
-            src={src}
+            src={src || ImagePlacholder}
             alt={`Slide ${index + 1}`}
             fill
             className={`absolute top-0 left-0 object-center transition-opacity duration-1000 ease-in-out ${

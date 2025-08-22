@@ -13,9 +13,7 @@ const HeroSection = () => {
       try {
         const response = await api.get<{ data: Banner[] }>("/banners");
         const banners = response.data.data;
-        const desktopImages = banners.map(
-          (item) => item.full_desktop_image_url
-        );
+        const desktopImages = banners.map((item) => item.full_image_url);
         setImages(desktopImages);
       } catch (error) {
         console.error("Gagal fetch data:", error);
