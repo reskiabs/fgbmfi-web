@@ -3,6 +3,7 @@ export interface AboutUsItem {
   title: string;
   status: number;
   content: string;
+  sort: number;
   created_at: string;
   updated_at: string;
 }
