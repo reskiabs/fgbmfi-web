@@ -50,7 +50,7 @@ const Header = () => {
                   key={item.name}
                   onClick={() => setShowContactPopup(true)}
                   className={clsx(
-                    "px-5 py-2.5 text-[15px] font-normal border rounded-full border-primary-dark text-primary-dark hover:bg-tertiary transition"
+                    "px-5 py-2.5 text-[15px] font-normal border rounded-full border-primary-dark text-primary-dark hover:bg-tertiary transition-colors hover:cursor-pointer"
                   )}
                 >
                   {item.name}
@@ -102,7 +102,7 @@ const Header = () => {
                     setShowContactPopup(true);
                     setMenuOpen(false);
                   }}
-                  className="w-full py-4 text-sm font-medium text-center transition border-b border-gray-300"
+                  className="w-full py-4 text-sm font-medium text-center transition border-b border-gray-300 hover:cursor-pointer"
                 >
                   {item.name}
                 </button>
@@ -115,7 +115,7 @@ const Header = () => {
                 href={item.route}
                 onClick={() => setMenuOpen(false)}
                 className={clsx(
-                  "w-full py-4 text-sm font-normal text-center border-b border-gray-300 transition",
+                  "w-full py-4 text-sm font-normal text-center border-b border-gray-300 transition hover:cursor-pointer",
                   isActive && "font-bold text-primary"
                 )}
               >
