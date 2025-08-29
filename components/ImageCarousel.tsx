@@ -47,7 +47,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
             src={src || ImagePlacholder}
             alt={`Slide ${index + 1}`}
             fill
-            className={`absolute top-0 left-0 object-center transition-opacity duration-1000 ease-in-out ${
+            className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out ${
               index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
             placeholder="blur"

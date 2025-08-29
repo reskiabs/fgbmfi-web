@@ -1,7 +1,11 @@
 "use client";
 
 import useContactUs, { ContactItem } from "@/hooks/useContactUs";
+import Instagram from "@/public/icons/instagram.svg";
+import TikTok from "@/public/icons/tik-tok.svg";
+import Twitter from "@/public/icons/twitter.svg";
 import { Mail, MapPin, Phone, X } from "lucide-react";
+import Image from "next/image";
 import LoaderContent from "./LoaderContent";
 import SomethingWentWrong from "./SomethingWentWrong";
 
@@ -11,9 +15,16 @@ interface ContactPopupProps {
 
 const ContactPopup = ({ onClose }: ContactPopupProps) => {
   const { contacts, loading, error } = useContactUs();
+  console.log("🔍 > ContactPopup > contacts:", contacts);
 
   if (loading) return <LoaderContent />;
   if (error) return <SomethingWentWrong />;
+
+  // Separate contact items by type
+  const basicContacts = contacts.filter(
+    (item) => item.type >= 0 && item.type <= 2
+  );
+  const socialMediaContacts = contacts.filter((item) => item.type >= 3);
 
   const renderContactItem = (item: ContactItem) => {
     switch (item.type) {
@@ -50,6 +61,53 @@ const ContactPopup = ({ onClose }: ContactPopupProps) => {
     }
   };
 
+  const getSocialMediaIcon = (link: string) => {
+    const url = link.toLowerCase();
+    if (url.includes("instagram")) {
+      return Instagram;
+    } else if (url.includes("tiktok") || url.includes("tik-tok")) {
+      return TikTok;
+    } else if (url.includes("twitter") || url.includes("x.com")) {
+      return Twitter;
+    }
+    // Default fallback - you can add more social media platforms here
+    return Instagram;
+  };
+
+  const getSocialMediaAlt = (link: string) => {
+    const url = link.toLowerCase();
+    if (url.includes("instagram")) {
+      return "Instagram";
+    } else if (url.includes("tiktok") || url.includes("tik-tok")) {
+      return "TikTok";
+    } else if (url.includes("twitter") || url.includes("x.com")) {
+      return "Twitter";
+    }
+    return "Social Media";
+  };
+
+  const renderSocialMediaIcon = (item: ContactItem) => {
+    const icon = getSocialMediaIcon(item.link);
+    const altText = getSocialMediaAlt(item.link);
+    console.log("🔍 > renderSocialMediaIcon > altText:", altText);
+
+    return (
+      <a
+        key={item.id}
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative size-[30px] rounded-full border border-primary flex items-center justify-center md:size-[45px] lg:size-[60px] hover:bg-secondary/40 hover:bg-opacity-10 transition-colors"
+      >
+        <Image
+          src={icon}
+          alt={altText}
+          className="md:size-[18px] lg:size-[30px]"
+        />
+      </a>
+    );
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75">
       <div className="bg-white rounded-2xl md:rounded-[20px] p-5 md:p-10 w-[90%] md:w-[600px] relative">
@@ -65,20 +123,27 @@ const ContactPopup = ({ onClose }: ContactPopupProps) => {
         </h2>
 
         <div className="space-y-4 md:space-y-9">
-          {contacts.map(renderContactItem)}
+          {basicContacts.map(renderContactItem)}
 
           <button
             onClick={() =>
               window.open(
-                contacts.find((c) => c.type === 2)?.link || "#",
+                basicContacts.find((c) => c.type === 2)?.link || "#",
                 "_blank"
               )
             }
-            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center hover:cursor-pointer"
+            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center hover:cursor-pointer hover:opacity-80 transition-colors"
           >
             Direction Google Maps
           </button>
         </div>
+
+        {/* Render social media icons only if there are social media contacts */}
+        {socialMediaContacts.length > 0 && (
+          <div className="flex gap-[15px] lg:gap-[30px] mt-4 lg:mt-7 justify-center">
+            {socialMediaContacts.map(renderSocialMediaIcon)}
+          </div>
+        )}
       </div>
     </div>
   );

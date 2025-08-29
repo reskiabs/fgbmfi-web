@@ -24,12 +24,13 @@ const OrganizationStructure = () => {
         {error && <p className="text-red-500">{error}</p>}
 
         {!loading && !error && organisation.length > 0 && (
-          <div className="relative border-2 flex justify-center items-center border-primary w-[339px] h-[207px] lg:border-4 md:w-[920px] md:h-[610px] lg:w-[1140px] lg:h-[695px]">
+          <div className="relative border-2 border-primary w-[339px] lg:border-4 md:w-[920px] lg:w-[1140px] py-[20px] lg:py-[40px]">
             <Image
               src={organisation[0].full_image_url}
               alt="Organization Structure"
-              fill
-              className="object-contain"
+              width={1140}
+              height={0}
+              className="w-full h-auto"
             />
           </div>
         )}
