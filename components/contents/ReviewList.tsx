@@ -32,9 +32,10 @@ const ReviewList = () => {
   if (testimonies.length === 0) return null;
 
   return (
-    <section className="px-[50px] py-[30px] bg-gradient-to-b from-secondary to-tertiary mt-[50px] lg:mt-[100px] lg:px-[150px] lg:py-[100px]">
-      <div className="flex items-center gap-[70px] lg:max-w-[1165px] lg:mx-auto">
-        <button onClick={handlePrev} className="hidden md:block">
+    <section className="p-[30px] bg-gradient-to-b from-secondary to-tertiary mt-[50px] lg:mt-[100px] lg:px-[150px] lg:py-[100px]">
+      {/* Desktop layout */}
+      <div className="hidden md:flex items-center gap-[70px] lg:max-w-[1165px] lg:mx-auto">
+        <button onClick={handlePrev} className="block">
           <Image
             src={ArrowLeftActive}
             alt="Arrow Left"
@@ -53,7 +54,7 @@ const ReviewList = () => {
           }}
         />
 
-        <button onClick={handleNext} className="hidden md:block">
+        <button onClick={handleNext} className="block">
           <Image
             src={ArrowRightActive}
             alt="Arrow Right"
@@ -63,7 +64,52 @@ const ReviewList = () => {
         </button>
       </div>
 
-      <div className="hidden lg:flex justify-center mt-2.5 space-x-2 lg:space-x-[20px] lg:mt-6">
+      {/* Mobile layout */}
+      <div className="md:hidden">
+        <ReviewCard
+          review={{
+            id: testimonies[currentIndex].id,
+            text: testimonies[currentIndex].content,
+            name: testimonies[currentIndex].name,
+            role: testimonies[currentIndex].position,
+            image: testimonies[currentIndex]?.full_image_url || "",
+          }}
+        />
+
+        <div className="flex items-center justify-center mt-2 space-x-5">
+          <button onClick={handlePrev}>
+            <Image
+              src={ArrowLeftActive}
+              alt="Arrow Left"
+              width={24}
+              height={24}
+            />
+          </button>
+
+          <div className="flex space-x-2">
+            {testimonies.map((_, idx) => (
+              <div
+                key={idx}
+                className={`rounded-full size-2 ${
+                  idx === currentIndex ? "bg-teal-700" : "bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button onClick={handleNext}>
+            <Image
+              src={ArrowRightActive}
+              alt="Arrow Right"
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop indicators */}
+      <div className="hidden md:flex justify-center mt-2.5 space-x-2 lg:space-x-[20px] lg:mt-6">
         {testimonies.map((_, idx) => (
           <div
             key={idx}

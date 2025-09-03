@@ -30,7 +30,7 @@ const Articles = () => {
           <ContentTitle title="Artikel" removeButton href="/" />
         </div>
         <>
-          <div className="grid gap-4 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
+          <div className="grid gap-6 grid-cols-1 md:gap-7 md:grid-cols-2 lg:gap-11 content-center mb-[30px]">
             {paginatedArticles.map((article) => {
               const imageSrc = article.full_image_url || "";
               const date = article.created_at || "";

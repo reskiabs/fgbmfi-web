@@ -30,7 +30,7 @@ const ActivityDetailPage = () => {
       />
 
       {activity.full_images_url?.[0] && (
-        <div className="relative w-[340px] md:w-[920px] lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
+        <div className="relative w-full md:w-full lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
           <Image
             src={activity.full_images_url[0]}
             alt={activity.title}

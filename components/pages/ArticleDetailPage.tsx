@@ -30,7 +30,7 @@ const ArticleDetailPage = () => {
           date={dayjs(article.created_at).format("DD MMMM YYYY")}
         />
 
-        <div className="relative w-[340px] md:w-[920px] lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
+        <div className="relative w-full md:w-full lg:w-[1140px] rounded-[15px] md:rounded-[20px] overflow-hidden">
           <Image
             src={article.full_image_url}
             alt={article.title}
@@ -49,7 +49,7 @@ const ArticleDetailPage = () => {
       </Container>
 
       {article.recommendations.length > 0 && (
-        <section className="py-[50px] px-[30px] bg-gradient-to-b from-secondary to-tertiary mt-[50px] lg:mt-[100px] lg:px-[150px] lg:py-[100px]">
+        <section className="py-[50px] px-[30px] md:px-[50px] bg-gradient-to-b from-secondary to-tertiary mt-[50px] lg:mt-[100px] lg:px-[150px] lg:py-[100px]">
           <div className="mb-2.5 md:mb-10 lg:max-w-[1165px] lg:mx-auto">
             <ContentTitle title="Artikel Lainnya" removeButton />
           </div>
