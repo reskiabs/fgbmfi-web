@@ -19,6 +19,7 @@ const OrganizationStructure = () => {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [lastTouchPosition, setLastTouchPosition] = useState({ x: 0, y: 0 });
   const modalRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -70,6 +71,8 @@ const OrganizationStructure = () => {
   // Touch event handlers for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length === 1 && zoomLevel > 1) {
+      const touch = e.touches[0];
+      setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
       setIsDragging(true);
       e.preventDefault();
     }
@@ -80,15 +83,16 @@ const OrganizationStructure = () => {
 
     e.preventDefault();
     const touch = e.touches[0];
-    const prevTouch = e.changedTouches[0];
 
-    const moveX = touch.clientX - prevTouch.clientX;
-    const moveY = touch.clientY - prevTouch.clientY;
+    const moveX = touch.clientX - lastTouchPosition.x;
+    const moveY = touch.clientY - lastTouchPosition.y;
 
     setImagePosition((prev) => ({
       x: prev.x + moveX,
       y: prev.y + moveY,
     }));
+
+    setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
   };
 
   const handleTouchEnd = () => {
@@ -138,7 +142,7 @@ const OrganizationStructure = () => {
 
         {!loading && !error && organisation.length > 0 && (
           <div className="relative">
-            <div className="relative border-2 border-primary w-[339px] lg:border-4 md:w-[920px] lg:w-[1140px] py-[20px] lg:py-[40px]">
+            <div className="relative border-2 border-primary w-full lg:border-4 md:w-[920px] lg:w-[1140px] py-[20px] lg:py-[40px]">
               <Image
                 src={organisation[0].full_image_url}
                 alt="Organization Structure"
@@ -173,7 +177,7 @@ const OrganizationStructure = () => {
               onTouchEnd={handleTouchEnd}
             >
               {/* Modal Header */}
-              <div className="flex justify-between items-center p-4 md:p-6 border-b">
+              <div className="flex justify-between items-center p-4 md:p-6 border-b border-gray-300">
                 <h3 className="text-sm md:text-lg lg:text-xl font-bold text-primary truncate">
                   Struktur Organisasi FGBMFI Indonesia
                 </h3>
@@ -278,9 +282,24 @@ const OrganizationStructure = () => {
               </div>
 
               {/* Modal Footer */}
-              <div className="p-3 md:p-4 border-t bg-white">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-xs md:text-sm text-gray-600">
-                  <div className="flex items-center gap-3 text-center sm:text-left">
+              <div className="p-3 md:p-4 border-t border-gray-300 bg-white">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs md:text-sm text-gray-600">
+                  {/* Mobile Instructions */}
+                  <div className="flex flex-col gap-1 text-left sm:hidden">
+                    <div className="flex items-center justify-start gap-1">
+                      <Plus size={14} />
+                      <Minus size={14} />
+                      <span>untuk zoom</span>
+                    </div>
+                    <div className="flex items-center justify-start gap-1">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M10 10L4 4m0 0l6 6m-6-6v6.5a7.5 7.5 0 0 0 15 0v-2"/>
+                      </svg>
+                      <span>Geser gambar saat zoom aktif</span>
+                    </div>
+                  </div>
+                  {/* Desktop Instructions */}
+                  <div className="hidden sm:flex items-center gap-3 text-center sm:text-left">
                     <div className="flex items-center gap-1">
                       <Scroll size={14} />
                       <span>Scroll untuk zoom</span>
@@ -291,7 +310,7 @@ const OrganizationStructure = () => {
                       <span>Drag untuk menggeser</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1 text-center sm:text-right">
+                  <div className="hidden sm:flex items-center gap-1 text-center sm:text-right">
                     <Keyboard size={14} />
                     <span>ESC untuk menutup</span>
                   </div>
