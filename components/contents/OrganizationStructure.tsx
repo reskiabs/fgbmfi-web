@@ -152,12 +152,15 @@ const OrganizationStructure = () => {
               />
             </div>
 
-            <button
-              onClick={openModal}
-              className="mt-4 md:mt-6 px-6 py-2 md:px-8 md:py-3 bg-primary text-white rounded-full hover:opacity-80 transition-opacity duration-200 text-sm md:text-base font-medium hover:cursor-pointer"
-            >
-              Lihat Detail
-            </button>
+            <p className="mt-4 md:mt-6 text-sm md:text-base font-medium text-gray-600">
+              <span
+                onClick={openModal}
+                className="text-primary hover:text-primary/60 transition-colors duration-200 cursor-pointer font-semibold"
+              >
+                Klik Disini
+              </span>{" "}
+              untuk melihat struktur organisasi dalam tampilan yang lebih besar
+            </p>
           </div>
         )}
 
@@ -292,8 +295,15 @@ const OrganizationStructure = () => {
                       <span>untuk zoom</span>
                     </div>
                     <div className="flex items-center justify-start gap-1">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M10 10L4 4m0 0l6 6m-6-6v6.5a7.5 7.5 0 0 0 15 0v-2"/>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M10 10L4 4m0 0l6 6m-6-6v6.5a7.5 7.5 0 0 0 15 0v-2" />
                       </svg>
                       <span>Geser gambar saat zoom aktif</span>
                     </div>
