@@ -39,8 +39,8 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className="relative group">
-      <div className="relative w-full min-w-[340px] h-[191px] rounded-[15px] overflow-hidden md:w-[920px] md:h-[517px] lg:w-[1140px] lg:h-[641px] md:rounded-[20px] hover:cursor-pointer">
+    <div className="group w-full">
+      <div className="relative w-full h-[191px] rounded-[15px] overflow-hidden md:h-[517px] lg:h-[641px] md:rounded-[20px] hover:cursor-pointer">
         {images.map((src, index) => (
           <Image
             key={index}

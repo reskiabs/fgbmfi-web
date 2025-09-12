@@ -46,7 +46,7 @@ const OrganizationStructure = () => {
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || zoomLevel <= 1) return;
+    if (!isDragging) return;
 
     const moveX = e.movementX;
     const moveY = e.movementY;
@@ -59,9 +59,7 @@ const OrganizationStructure = () => {
 
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (zoomLevel > 1) {
-      setIsDragging(true);
-    }
+    setIsDragging(true);
   };
 
   const handleMouseUp = () => {
@@ -70,7 +68,7 @@ const OrganizationStructure = () => {
 
   // Touch event handlers for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (e.touches.length === 1 && zoomLevel > 1) {
+    if (e.touches.length === 1) {
       const touch = e.touches[0];
       setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
       setIsDragging(true);
@@ -79,7 +77,7 @@ const OrganizationStructure = () => {
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || zoomLevel <= 1 || e.touches.length !== 1) return;
+    if (!isDragging || e.touches.length !== 1) return;
 
     e.preventDefault();
     const touch = e.touches[0];
@@ -263,9 +261,7 @@ const OrganizationStructure = () => {
                     transform: `translate(${imagePosition.x}px, ${imagePosition.y}px)`,
                     cursor: isDragging
                       ? "grabbing"
-                      : zoomLevel > 1
-                      ? "grab"
-                      : "zoom-in",
+                      : "grab",
                   }}
                 >
                   <Image
@@ -305,7 +301,7 @@ const OrganizationStructure = () => {
                       >
                         <path d="M10 10L4 4m0 0l6 6m-6-6v6.5a7.5 7.5 0 0 0 15 0v-2" />
                       </svg>
-                      <span>Geser gambar saat zoom aktif</span>
+                      <span>Seret untuk menggeser gambar</span>
                     </div>
                   </div>
                   {/* Desktop Instructions */}
