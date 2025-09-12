@@ -1,9 +1,9 @@
 import api from "@/lib/helper/api";
-import { Activity, ActivityDetailResponse } from "@/types/activity";
+import { ActivityDetail, ActivityDetailResponse } from "@/types/activity";
 import { useEffect, useState } from "react";
 
 export default function useActivityDetail(slug: string) {
-  const [activity, setActivity] = useState<Activity | null>(null);
+  const [activity, setActivity] = useState<ActivityDetail | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

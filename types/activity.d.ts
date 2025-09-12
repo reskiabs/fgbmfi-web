@@ -18,6 +18,21 @@ export interface Activity {
   full_images_url: string[];
 }
 
+export interface ActivityDetail {
+  id: number;
+  title: string;
+  slug: string;
+  status: number;
+  content: string;
+  image_url: string;
+  image_names: string;
+  meta: ActivityMeta;
+  created_at: string;
+  updated_at: string;
+  full_images_url: string[];
+  recommendations: ActivityDetail[];
+}
+
 export interface ActivitiesResponse {
   success: boolean;
   data: Activity[];
@@ -26,6 +41,6 @@ export interface ActivitiesResponse {
 
 export interface ActivityDetailResponse {
   success: boolean;
-  data: Activity;
+  data: ActivityDetail;
   message: string | null;
 }
