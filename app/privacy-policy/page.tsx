@@ -12,7 +12,7 @@ const AboutUsPage = () => {
         </div>
         <div className="prose max-w-none text-base mb-1.5 md:mb-3 font-normal text-gray-500 md:text-[14px] lg:text-xl leading-relaxed">
           <p className="mb-6">
-            Terima kasih telah mengunjungi fgbmdi.or.id (&ldquo;Situs
+            Terima kasih telah mengunjungi fgbmfi.or.id (&ldquo;Situs
             Web&rdquo;) atau mengunduh aplikasi My FGBMFI
             (&ldquo;Aplikasi&rdquo;). Ketentuan Pemakaian ini (yang bersama-sama
             dengan perubahan, tambahan dan/atau pengubahannya disebut sebagai
