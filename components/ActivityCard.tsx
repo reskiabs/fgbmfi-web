@@ -18,7 +18,7 @@ const ActivityCard = ({ src, title, date, href }: ActivityCardProps) => {
         <Image src={src} alt={title} fill className="object-cover" />
       </div>
       <div className="mt-3 md:mt-5">
-        <h2 className="font-bold text-[16px] md:text-2xl">{title}</h2>
+        <h2 className="font-bold text-base md:text-2xl">{title}</h2>
         <p className="font-medium text-sm text-gray-400 md:text-lg md:mt-0.5">
           {dayjs(date).format("DD MMMM YYYY")}
         </p>
