@@ -680,10 +680,10 @@ const AboutUsPage = () => {
           <p className="mb-4">
             Anda dapat menghubungi kami melalui surat elektronik (email) di{" "}
             <a
-              href="mailto:fgbmfidki5@gmail.com"
+              href="mailto:indonesia@fgbmfi.or.id"
               className="text-blue-600 hover:underline"
             >
-              fgbmfidki5@gmail.com
+              indonesia@fgbmfi.or.id
             </a>{" "}
             atau melalui WhatsApp{" "}
             <a
