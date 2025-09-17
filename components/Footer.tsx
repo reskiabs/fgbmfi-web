@@ -7,7 +7,7 @@ const Footer = () => {
             FGBMFI Indonesia
           </h1>
            
-          <p className="text-sm font-normal text-white md:text-[16px] lg:text-[20px]">
+          <p className="text-sm font-normal text-white md:text-base lg:text-[20px]">
             Full Gospel Business Men’s Fellowship International
           </p>
         </div>

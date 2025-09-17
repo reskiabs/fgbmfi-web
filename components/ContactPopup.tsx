@@ -132,7 +132,7 @@ const ContactPopup = ({ onClose }: ContactPopupProps) => {
                 "_blank"
               )
             }
-            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-[16px] font-medium text-center hover:cursor-pointer hover:opacity-80 transition-colors"
+            className="w-full h-[32px] md:h-[40px] bg-primary rounded-full text-white text-[12px] md:text-base font-medium text-center hover:cursor-pointer hover:opacity-80 transition-colors"
           >
             Direction Google Maps
           </button>
