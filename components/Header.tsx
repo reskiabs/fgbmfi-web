@@ -12,9 +12,10 @@ import ContactPopup from "./ContactPopup";
 const menuItems = [
   { name: "Beranda", route: "/" },
   { name: "Tentang Kami", route: "/about-us" },
+  { name: "Kebijakan Privasi", route: "/privacy-policy" },
   { name: "Artikel", route: "/articles" },
   { name: "Kegiatan", route: "/activities" },
-  { name: "Hubungi Kami", route: "/" }, // route dummy, karena pakai popup
+  { name: "Hubungi Kami", route: "/" },
 ];
 
 const Header = () => {
